@@ -5,6 +5,8 @@ const Chat = () => {
   return (
     <>
     <h1>this is chat</h1>
+    <p>isjsiaaj</p>
+    waxaanrabe ak
     </>
   )
 }
