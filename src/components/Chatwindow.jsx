@@ -50,6 +50,7 @@ const Chatwindow = () => {
       </div>
       <ChatInput onSend={handleSend} />
       <p>.......</p>
+      <p>..s</p>
     </div>
   
   );
