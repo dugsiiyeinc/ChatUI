@@ -49,7 +49,9 @@ const Chatwindow = () => {
         ))}
       </div>
       <ChatInput onSend={handleSend} />
+      <p>.......</p>
     </div>
+  
   );
 };
 
