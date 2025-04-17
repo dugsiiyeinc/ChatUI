@@ -10,6 +10,11 @@
     {
         "question": "waa maxay faaiidada openrouter?",
         "answer": "Waxaad ubaahantahay API key kadibna waad samayn kartaa codsiyo POST ah adigoo isticmaalaya endpoint-ka /chat/completions."
+      },
+      {
+        "question": "waa maxay faaiidada openrouter?",
+        "answer": "Waxaad ubaahantahay API key kadibna waad samayn kartaa codsiyo POST ah adigoo isticmaalaya endpoint-ka /chat/completions."
       }
   ]
+  
   
