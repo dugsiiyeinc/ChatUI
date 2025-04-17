@@ -1,0 +1,11 @@
+[
+    {
+      "question": "Waa maxay OpenRouter?",
+      "answer": "OpenRouter waa API hub kuu oggolaanaya inaad la shaqeyso AI models kala duwan si fudud."
+    },
+    {
+      "question": "Sidee loo isticmaalaa OpenRouter API?",
+      "answer": "Waxaad ubaahantahay API key kadibna waad samayn kartaa codsiyo POST ah adigoo isticmaalaya endpoint-ka /chat/completions."
+    }
+  ]
+  
