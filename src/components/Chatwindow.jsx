@@ -42,7 +42,7 @@ const ChatWindow = () => {
 
   return (
     <div className="max-w-xl mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Dood Caawiye (ChatUI)</h2>
+      <h2 className="text-2xl font-bold mb-4 text-white">Dood Caawiye (ChatUI)</h2>
       <div className="border p-4 rounded h-96 overflow-y-scroll bg-white shadow">
         {messages.map((msg, i) => (
           <ChatMessage key={i} role={msg.role} content={msg.content} />
