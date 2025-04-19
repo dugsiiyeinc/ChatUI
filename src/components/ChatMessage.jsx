@@ -5,8 +5,7 @@ const ChatMessage = ({ role, content }) => {
         <span className={`inline-block p-2 rounded ${isUser ? "bg-blue-200" : "bg-gray-200"}`}>
           {content}
         </span>
-        <h2>hsjsjs</h2>
-        <p>Lorem, ipsum dolor.</p>
+     
       </div>
     );
   };

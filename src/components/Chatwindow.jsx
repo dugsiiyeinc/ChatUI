@@ -4,7 +4,7 @@ import ChatMessage from "./ChatMessage";
 import { apiHeaders, apiUrl } from "../config";
 import trainingData from "../data/trainingData.json";
 
-const Chatwindow = () => {
+const ChatWindow = () => {
   const [messages, setMessages] = useState([]);
 
   const handleSend = async (userText) => {
@@ -49,11 +49,8 @@ const Chatwindow = () => {
         ))}
       </div>
       <ChatInput onSend={handleSend} />
-      <p>.......</p>
-      <p>..s</p>
     </div>
-  
   );
 };
 
-export default Chatwindow;
+export default ChatWindow;
