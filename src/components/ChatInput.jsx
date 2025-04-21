@@ -1,28 +1,34 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const ChatInput = ({ onSend }) => {
-  const [text, setText] = useState("");
+const ChatInput = ({ onSendMessage }) => {
+  const [message, setMessage] = useState("");
 
-  const handleSend = () => {
-    if (text.trim()) {
-      onSend(text);
-      setText("");
+  const handleMessageChange = (e) => {
+    setMessage(e.target.value);
+  };
+
+  const handleSendMessage = () => {
+    if (message.trim()) {
+      onSendMessage(message);
+      setMessage(""); // Clear input after sending
     }
   };
 
   return (
-    <div className="p-2 flex gap-2">
+    <div className="p-4 bg-gray-800">
       <input
-        className="flex-1 border px-4 py-2 rounded bg-white"
-        placeholder="Write message..."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && handleSend()}
+        type="text"
+        value={message}
+        onChange={handleMessageChange}
+        className="w-full p-2 rounded-md"
+        placeholder="Type a message..."
       />
-      <button onClick={handleSend} className="bg-blue-600 text-white px-4 py-2 rounded">
-        Sends
+      <button
+        onClick={handleSendMessage}
+        className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md"
+      >
+        Send
       </button>
-      
     </div>
   );
 };
