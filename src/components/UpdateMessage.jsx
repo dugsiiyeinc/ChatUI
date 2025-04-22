@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Chatwindow from './Chatwindow';
 import ChatInput from './ChatInput';
 import SideBar from './SideBar';
 
+
+
 const UpdateMessage = () => {
   const [chatHistory, setChatHistory] = useState([]); // All chats
   const [activeChat, setActiveChat] = useState(null); // Current selected chat
+  const [chats, setChats] = useState([]);
+  const [activeChatIndex, setActiveChatIndex] = useState(null);
 
-  // Function to start a new chat
+//   Function to start a new chat
   const handleNewChat = () => {
     const newChat = {
       id: Date.now(),
@@ -17,6 +21,18 @@ const UpdateMessage = () => {
     setChatHistory([...chatHistory, newChat]);
     setActiveChat(newChat);
   };
+  // Sample: Load dummy data on first mount only
+  useEffect(() => {
+    const dummyChat = {
+      id: Date.now(),
+      title: "Welcome!",
+      messages: [
+        { sender: "bot", text: "Hi there! How can I help you today?" }
+      ]
+    };
+    setChats([dummyChat]);
+    setActiveChatIndex(0);
+  }, []); // ✅ empty dependency array = only runs once on mount
 
   // Function to send a message
   const handleSendMessage = async (messageText) => {
