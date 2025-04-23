@@ -1,14 +1,13 @@
+import React from 'react';
+
 const ChatMessage = ({ role, content }) => {
-    const isUser = role === "user";
-    return (
-      <div className={`p-2 my-1 ${isUser ? "text-right" : "text-left"}`}>
-        <span className={`inline-block p-2 rounded ${isUser ? "bg-blue-200" : "bg-gray-200"}`}>
-          {content}
-        </span>
-     
+  return (
+    <div className={`my-2 ${role === 'user' ? 'text-right' : 'text-left'}`}>
+      <div className={`inline-block p-2 rounded-lg ${role === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}>
+        {content}
       </div>
-    );
-  };
-  
-  export default ChatMessage;
-  
+    </div>
+  );
+};
+
+export default ChatMessage;
