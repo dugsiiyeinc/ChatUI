@@ -1,14 +1,28 @@
 [
+ 
   {
-    "question": "maxaa keena xanuunka madax xanuunka",
-    "answer": "Madax xanuunka waxaa keeni kara hurdo la'aan, cunto xumo, stress iyo cuduro kale."
+    "question": "Dugsiiye maxay qabataa?",
+    "answer": "Dugsiiye waa madal waxbarasho online ah oo bixisa koorsooyin, mentorship iyo tababaro xirfadeed."
   },
   {
-    "question": "waa maxay cudurka sonkorowga",
-    "answer": "Sonkorowgu waa cudur dhiigga sonkorta ku bata sabab la xiriirta insulin la'aanta."
+    "question": "Mentorshipka Dugsiiye maxaa lagu bartaa?",
+    "answer": "Mentorship-ka Dugsiiye waxaad ku baran kartaa xirfado la xiriira barnaamijinta, design, AI, iyo skills kale oo la taaban karo."
   },
   {
-    "question": "waa maxay cudurka HIC u bata sabab la xiriirta insulin la'aanta",
-    "answer": "Sonkorowgu waa cudur dhiigga sonkorta ku bata sabab la xiriirta insulin la'aanta."
+    "question": "Dugsiiye ma bixisaa discount?",
+    "answer": "Haa, Dugsiiye mararka qaar waxay bixisaa qiimo dhimis iyo fursado gaar ah."
+  }
+,
+  {
+    "question": "dugsiiye maxay qabataa",
+    "answer": "Dugsiiye waa madal waxbarasho online ah oo bixisa koorsooyin, mentorship iyo tababaro xirfadeed."
+  },
+  {
+    "question": "mentorshipka dugsiiye maxaa lagu bartaa",
+    "answer": "Mentorship-ka Dugsiiye waxaad ku baran kartaa xirfado la xiriira barnaamijinta, design, AI, iyo skills kale oo la taaban karo."
+  },
+  {
+    "question": "dugsiiye ma bixisaa discount",
+    "answer": "Haa, Dugsiiye mararka qaar waxay bixisaa qiimo dhimis iyo fursado gaar ah."
   }
 ]
