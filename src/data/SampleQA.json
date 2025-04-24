@@ -1,14 +1,14 @@
 [
   {
-    "question": "what is cybersecurity?",
-    "answer": "Cybersecurity is the practice of protecting systems, networks, and data from digital attacks."
+    "question": "maxaa keena xanuunka madax xanuunka",
+    "answer": "Madax xanuunka waxaa keeni kara hurdo la'aan, cunto xumo, stress iyo cuduro kale."
   },
   {
-    "question": "what is phishing?",
-    "answer": "Phishing is a type of cyber attack where attackers trick individuals into providing sensitive information."
-  },{
-    "question": "waa Kuma Engr Istar liin?" ,
-    "answer": "ENgr IStar liin waa gabadha garti badan jecel codingka aniga ayada i develope gareese"
+    "question": "waa maxay cudurka sonkorowga",
+    "answer": "Sonkorowgu waa cudur dhiigga sonkorta ku bata sabab la xiriirta insulin la'aanta."
+  },
+  {
+    "question": "waa maxay cudurka HIC u bata sabab la xiriirta insulin la'aanta",
+    "answer": "Sonkorowgu waa cudur dhiigga sonkorta ku bata sabab la xiriirta insulin la'aanta."
   }
 ]
-

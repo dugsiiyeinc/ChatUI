@@ -3,7 +3,7 @@ import React from "react";
 const SideBar = ({ chats, onSelectChat }) => {
   return (
     <div className="w-60 bg-gray-800 text-white">
-      <button onClick={onSelectChat} className="p-2">New Chat</button>
+      <button onClick={onSelectChat} className="p-2 ">New Chat</button>
       <div className="mt-4">
         {chats.map((chat) => (
           <div

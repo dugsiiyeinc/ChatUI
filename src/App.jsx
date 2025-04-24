@@ -9,8 +9,8 @@ import Footer from "./components/Footer";
 import ChatPage from "./pages/ChatPage";
 // import SideBar from "./components/Sidebar";
 
-import Chatwindow from "./components/Chatwindow";
-import ChatInput from "./components/ChatInput";
+
+
 // import UpdateMessage from "./components/UpdateMessage";
 
 function App() {
