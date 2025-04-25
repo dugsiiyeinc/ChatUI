@@ -1,12 +1,79 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# 🟡 ChatUi – Smart Assistant for Students
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**ChatUi** waa web app fudud oo kaa caawinaya inaad si sahlan uga hesho jawaabo deg deg ah oo ku saabsan dugsiga, gaar ahaan casharada macallimiintu dhigaan. Waa chatbot waxbarasho u gaar ah oo loogu talagalay ardayda.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧠 Waa maxay ChatUi qabto?
+
+- Kuu oggolaanaya inaad weydiiso su'aalo la xiriira:
+  - Maadooyinka dugsiga
+  - Casharro muhiim ah
+  - Talooyin waxbarasho
+  - Qodobo muhiim u ah fahamka
+- Waxaad la sheekeysan kartaa Bot-ka si fudud adigoo ku jira web app-ka
+- Waa mid responsive ah, waxaana uu ku shaqeeyaa mobile iyo desktop
+
+---
+
+## 🌍 Homepage View (Mockup)
+
+- Navigation bar leh: Home | History | Bot | Chatpage | Users | Settings
+- Midabyo u eg classroom & smart interface
+- Bot assistant oo leh input iyo conversation log
+- Sign In / Sign Up buttons
+
+---
+
+## 🛠️ Tech Stack
+
+| Qeybta            | Teknoolojiyada la adeegsaday           |
+|-------------------|----------------------------------------|
+| **Frontend**      | React.js                               |
+| **Styling**       | Tailwind CSS                           |
+| **API**           | OpenRouter API (Chat Assistant)        |
+| **Authentication**| Supabase                               |
+| **Routing**       | React Router DOM                       |
+| **Deployment**    | Vite + Netlify/Vercel                  |
+
+---
+
+## 🔧 Sida loo socodsiiyo mashruuca (Local Setup)
+
+```bash
+# 1. Clone the repo
+https://github.com/star-ELmi/ChatUi.git
+cd ChatUi
+
+# 2. Install dependencies
+npm install
+
+# 3. Run project with Vite
+dnpm run dev
+```
+
+> App-ka wuxuu si toos ah uga furmi doonaa: `http://localhost:5173`
+
+---
+
+## 🔚 Gunaanad
+
+ChatUi waa mashruuc waxbarasho oo diiradda saaraya ardayda Soomaaliyeed, gaar ahaan kuwa rabta inay si sahlan u fahmaan casharrada. Waxaa loogu talagalay barashada React, Tailwind, API Integration, iyo Authentication.
+
+---
+
+## 📥 Soo dejinta
+
+Waxaad mashruucan si fudud ugu tijaabin kartaa adigoo isticmaalaya:
+- **Node.js**
+- **Vite**
+- **npm**
+
+Haddii aad wax su’aalo ah qabto, xor ayaad u tahay inaad nala soo xiriirto 💬
+
+---
+
+**Made with 💛 by Istar Mohamed**
+
