@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import supabase from './supabase';
 
-export const uploadImage = async(file, userId, bucket = 'featured-images')=> {
+ const uploadImage = async(file, userId, bucket = 'featured-images')=> {
 
     try {
         
@@ -41,3 +41,5 @@ export const uploadImage = async(file, userId, bucket = 'featured-images')=> {
         throw error
     }
 }
+
+export default uploadImage

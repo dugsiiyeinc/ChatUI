@@ -1,6 +1,6 @@
 /// FILE: src/components/Signup.js
 import { useState } from 'react'
-import { supabase } from '../lib/supabaseClient'
+import  supabase  from '../lib/supabase'
 import { useNavigate } from 'react-router-dom'
 
 export default function Signup() {

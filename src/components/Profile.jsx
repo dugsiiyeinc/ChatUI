@@ -1,6 +1,6 @@
 /// FILE: src/components/Profile.js
 import { useEffect, useState } from 'react'
-import { supabase } from '../lib/supabaseClient'
+import supabase from '../lib/supabase'
 
 export default function Profile() {
   const [user, setUser] = useState(null)

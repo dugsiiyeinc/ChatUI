@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
-import { signIn } from '../lib/auth'
+import  {signIn}  from '../lib/auth'
 import { useAuth } from '../context/AuthContext'
 
 const SignInPage = () => {
@@ -111,7 +111,7 @@ const SignInPage = () => {
           <div className="text-center mt-6">
             <p className="text-gray-600 text-sm">
               Don't have an account?{' '}
-              <Link to="/signup" className="text-orange-600 hover:text-orange-800 font-semibold">
+              <Link to="/signup" className="text-white bg-amber-400 hover:text-orange-800 font-semibold">
                 Sign up
               </Link>
             </p>

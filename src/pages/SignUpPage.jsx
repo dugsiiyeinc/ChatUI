@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
-import { signUp } from '../lib/auth'
+import  {signUp}  from '../lib/auth'
 
 const SignUpPage = () => {
 
