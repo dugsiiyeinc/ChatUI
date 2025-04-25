@@ -70,7 +70,7 @@ const UpdateMessage = () => {
         <Chatwindow chat={activeChat || { messages: [] }} />
         <ChatInput onSendMessage={handleSendMessage} />
       </div>
-      <p>......</p>
+      <p>.........</p>
     </div>
   );
 };
