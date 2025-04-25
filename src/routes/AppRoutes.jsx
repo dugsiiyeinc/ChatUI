@@ -13,11 +13,13 @@ import Login from "../components/Login";
 import UnAuthenticatedRoute from "../components/UnAuthenticatedRoute";
 import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
+import Layout from "../Layouts/MainLayout";
 
 
 export default function AppRoutes() {
   return (
     <Routes>
+       <Route element={<Layout/>}></Route>
       <Route path="/" element={<Home />} />
       
       <Route path="/history" element={<History />} />
