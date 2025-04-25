@@ -141,6 +141,7 @@ const ChatPage = () => {
             </button>
           </div>
         </div>
+        .
       </div>
     </div>
   );
