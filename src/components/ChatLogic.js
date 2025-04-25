@@ -37,7 +37,7 @@ export const createNewChat = (existingChats) => {
           ],
         };
       }
-      return chat;..
+      return chat;....
     });
   };
   
