@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ChatSidebar from "../components/ChatSidebar";
-import ChatWindow from "../components/ChatWindow";
+import Chatwindow from "../components/Chatwindow";
 import SampleQA from "../data/SampleQA.json";
 
 const ChatPage = () => {
@@ -109,7 +109,7 @@ const ChatPage = () => {
       <div className="flex-1 flex flex-col">
         <div className="flex-1 overflow-y-auto">
           {selectedChatIndex !== null ? (
-            <ChatWindow chat={chats[selectedChatIndex]} />
+            <Chatwindow chat={chats[selectedChatIndex]} />
           ) : (
             <div className="flex items-center justify-center h-full text-gray-500">
               Select or start a new chat

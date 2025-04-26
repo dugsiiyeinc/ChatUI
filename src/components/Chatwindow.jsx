@@ -1,7 +1,7 @@
 import React from "react";
 import { FaUser, FaRobot } from "react-icons/fa";
 
-const ChatWindow = ({ chat }) => {
+const Chatwindow = ({ chat }) => {
   if (!chat) return null;
 
   return (
@@ -38,4 +38,4 @@ const ChatWindow = ({ chat }) => {
   );
 };
 
-export default ChatWindow;
+export default Chatwindow;
