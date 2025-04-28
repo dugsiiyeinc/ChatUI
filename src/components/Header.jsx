@@ -32,7 +32,7 @@ const Header = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex md:justify-between items-center">
-            <div className="flex items-center space-x-6 lg:space-x-8">
+            <div className="flex items-center space-x-6 lg:space-x-8 ">
               <Link to="/" className="text-amber-400 font-semibold hover:text-white">Home</Link>
               <Link to="/history" className="text-amber-400 font-semibold hover:text-white">History</Link>
               <Link to="/bot" className="text-amber-400 font-semibold hover:text-white">Bot</Link>
