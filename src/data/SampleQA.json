@@ -1,28 +1,62 @@
 [
- 
   {
     "question": "Dugsiiye maxay qabataa?",
     "answer": "Dugsiiye waa madal waxbarasho online ah oo bixisa koorsooyin, mentorship iyo tababaro xirfadeed."
   },
   {
-    "question": "Mentorshipka Dugsiiye maxaa lagu bartaa?",
-    "answer": "Mentorship-ka Dugsiiye waxaad ku baran kartaa xirfado la xiriira barnaamijinta, design, AI, iyo skills kale oo la taaban karo."
-  },
-  {
     "question": "Dugsiiye ma bixisaa discount?",
     "answer": "Haa, Dugsiiye mararka qaar waxay bixisaa qiimo dhimis iyo fursado gaar ah."
-  }
-,
-  {
-    "question": "dugsiiye maxay qabataa",
-    "answer": "Dugsiiye waa madal waxbarasho online ah oo bixisa koorsooyin, mentorship iyo tababaro xirfadeed."
   },
   {
-    "question": "mentorshipka dugsiiye maxaa lagu bartaa",
+    "question": "Mentorship-ka Dugsiiye maxaa lagu bartaa?",
     "answer": "Mentorship-ka Dugsiiye waxaad ku baran kartaa xirfado la xiriira barnaamijinta, design, AI, iyo skills kale oo la taaban karo."
   },
   {
-    "question": "dugsiiye ma bixisaa discount",
-    "answer": "Haa, Dugsiiye mararka qaar waxay bixisaa qiimo dhimis iyo fursado gaar ah."
+    "question": "Maxay yihiin maadooyinka Dugsiiye bixiso?",
+    "answer": "Dugsiiye waxay bixisaa maadooyin ay ka mid yihiin: Barnaamijinta (Programming), Naqshadeynta (Design), Sirdoonka Artificial (AI), Xirfadaha xirfadeed iyo xog uruurinta iyo falanqaynta."
+  },
+  {
+    "question": "Maxay yihiin casharrada muhiimka ah ee Dugsiiye?",
+    "answer": "Casharrada muhiimka ah ee Dugsiiye waxaa ka mid ah: Hordhac Barnaamijinta Python, Naqshadeynta UI/UX, Hordhac AI iyo Machine Learning, Xirfadaha Warbixinta iyo Falanqaynta Xogta, iyo horumarinta xirfadaha shaqsiga."
+  },
+  {
+    "question": "Maxaad iigu talin lahayd si aan Dugsiiye uga faa'iidaysto?",
+    "answer": "Waxaan kugula talinayaa: Joogtee jadwal waxbarasho maalinle ah, qoraal samee inta aad casharro baranayso, la xiriir mentors-ka marka aad wax fahmi weydo, samee ku celcelin badan, iyo ka faa'iidayso qiimo dhimista iyo webinars-ka Dugsiiye."
+  },
+  {
+    "question": "Maxaa muhiim u ah fahamka Dugsiiye?",
+    "answer": "Dugsiiye waxay xooga saartaa xirfadaha suuqyada shaqada loo baahan yahay, waxayna bixisaa koorsooyin habaysan oo aad kula kulmi karto khabiiro kala duwan. Waxbarashada online-ka ah waxay kuu ogolaaneysaa inaad si dabacsan wax u barato."
+  },
+  {
+    "question": "Haddii aan Dugsiiye kusoo biiro oo juhdi badan sameeyo, fullstack developer ma noqon karaa?",
+    "answer": "Haa, haddii aad si joogto ah u barato koorsooyinka Dugsiiye isla markaana dadaal badan sameyso, waad noqon kartaa Fullstack Developer xirfad leh."
+  },
+  {
+    "question": "Hadii cilad iga qabsato dhanka cashirka ama project-ka, ma heli karaa team i caawiya?",
+    "answer": "Waad heli kartaa. Dugsiiye waxa uu leeyahay support team 24-saac diyaar ah oo kuu fududeynaya xalinta ciladaha casharrada iyo mashruucyada."
+  },
+  {
+    "question": "Waa maxay JavaScript (JS)?",
+    "answer": "JavaScript waa luqad barnaamijineed oo aad ugu muhiimsan horumarinta websaydyada, taas oo kuu ogolaanaysa inaad website-ka ka dhigto mid firfircoon oo interactive ah."
+  },
+  {
+    "question": "Waa maxay React?",
+    "answer": "React waa library ay sameysay Facebook oo kuu fududeyneysa in aad dhisto user interfaces (UI) casri ah, gaar ahaan dhinaca frontend-ka websaydyada."
+  },
+  {
+    "question": "Farqiga u dhexeeya JavaScript iyo React waa maxay?",
+    "answer": "JavaScript waa luqadda aasaasiga ah ee barnaamijinta browser-ka, halka React uu yahay library ka dhisan JavaScript oo kuu sahlaaya in aad si fudud u maareyso UI-ga webkaaga."
+  },
+  {
+    "question": "Sidee ku bilaabi karaa barashada Fullstack?",
+    "answer": "Waxaad ku bilaabi kartaa inaad barato HTML, CSS, JavaScript, kadib React ama Vue frontend-ka, markaas kadib Node.js iyo Database sida MongoDB backend-ka."
+  },
+  {
+    "question": "Dugsiiye ma bixisaa casharro ku saabsan frontend iyo backend?",
+    "answer": "Haa, Dugsiiye waxay bixisaa casharro ku saabsan frontend (HTML, CSS, JavaScript, React) iyo backend (Node.js, Databases) si aad u noqoto Fullstack Developer."
+  },
+  {
+    "question": "Sidee u ogaan karaa koorsada iga haboon ee Dugsiiye?",
+    "answer": "Dugsiiye waxay bixisaa talooyin iyo hagitaan aad kaga faa’iidaysan karto doorashada koorsada kugu haboon ee la jaanqaadaysa hadafkaaga xirfadeed."
   }
 ]

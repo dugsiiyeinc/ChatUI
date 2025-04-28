@@ -181,9 +181,9 @@ const UsersPage = () => {
         </Card>
       ))}
       
-      console.log('UsersPage component rendered');
+      {/* console.log('UsersPage component rendered');
 console.log('Users data:', users);
-console.log('Handle delete function called with id:', id);
+console.log('Handle delete function called with id:', id); */}
     </div>
   );
 };
