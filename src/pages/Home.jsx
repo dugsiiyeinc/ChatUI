@@ -16,7 +16,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/chat" className="px-8 py-3 bg-amber-500 text-white font-semibold rounded-lg shadow-md hover:bg-amber-600 transition-colors">
-                Try Demo
+                chats
               </Link>
               <Link to="/bot" className="px-8 py-3 border-2 border-amber-400 text-amber-400 font-semibold rounded-lg hover:bg-amber-400 hover:text-gray-900 transition-colors">
                 Manage Bots
