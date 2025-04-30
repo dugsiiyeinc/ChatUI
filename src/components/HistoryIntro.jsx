@@ -49,7 +49,7 @@ const HistoryIntro = () => {
             <li><strong>Xusuusin & Dib u Eegis:</strong> Waxay kaa caawin kartaa inaad horumar ka sameyso barashada, la-tashiga ama adeegyada aad isticmaalayso.</li>
           </ul>
         </CardContent>
-      </Card>..
+      </Card>
     </div>
   );
 };
