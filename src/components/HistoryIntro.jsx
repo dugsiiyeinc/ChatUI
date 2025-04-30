@@ -50,7 +50,7 @@ const HistoryIntro = () => {
           </ul>
         </CardContent>
       </Card>
-    </div>
+    </div>...
   );
 };
 
