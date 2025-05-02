@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Card } from './ui/Card'
+// import { Card-cone } from './ui/Card'
+import {CardContent} from './ui/Card'
 
 
 
