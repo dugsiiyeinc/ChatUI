@@ -1,6 +1,6 @@
 /// FILE: src/components/Login.js
 import { useState } from 'react'
-import supabase  from '../lib/supabase'
+import {supabase}  from '../lib/supabase'
 import { useNavigate } from 'react-router-dom'
 
  function Login() {

@@ -1,5 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getUserProfile, onAuthChange, signOut } from "../lib/auth";
+import { supabase } from "../lib/supabase";
+// import { getUserProfile, onAuthChange, signOut } from "../lib/auth";
+// import { getUserProfile } from '/src/lib/auth.js';
+
+// import { onAuthChange } from '/src/lib/auth.js';
 
 const AuthContext = createContext(null);
 
@@ -12,29 +16,17 @@ export function AuthProvider({ children }) {
 
 
     useEffect(() => {
-
-        const cleanUp = onAuthChange(async (user) => {
-
-            setUser(user);
-
-            if (user) {
-
-                try {
-                    const userProfile = await getUserProfile(user.id);
-                    setProfile(userProfile);
-                } catch (error) {
-                    console.error("Error fetching user profile: ", error)
-                }
-
-            } else {
-                setProfile(null)
-            }
-            setIsLoading(false)
-        })
-
-        return cleanUp;
-
-    }, [])
+        const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
+          // e.g., update user context here
+          console.log("Auth event:", event);
+          console.log("Session:", session);
+        });
+      
+        return () => {
+          listener.subscription.unsubscribe();
+        };
+      }, []);
+      
 
 
 

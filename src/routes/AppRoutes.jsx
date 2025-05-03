@@ -7,8 +7,8 @@ import Users from "../pages/Users";
 import Settings from "../pages/Settings";
 import React from "react";
 import ChatPage from "../pages/ChatPage";
-import Signup from "../components/Signup";
-import Profile from "../components/Profile";
+
+// import Profile from "../components/Profile";
 import Login from "../components/Login";
 import UnAuthenticatedRoute from "../components/UnAuthenticatedRoute";
 import SignInPage from "../pages/SignInPage";
@@ -25,8 +25,8 @@ export default function AppRoutes() {
       <Route path="/history" element={<History />} />
       <Route path="/bot" element={<BotManager />} />
       <Route path="/" element={<Login/>} />
-        <Route path="/signup" element={<Signup/>} />
-        <Route path="/profile" element={<Profile/>} />
+        <Route path="/signup" element={< SignUpPage/>} />
+        {/* <Route path="/profile" element={<Profile/>} /> */}
       <Route path="/chatpage" element={<ChatPage/>} />
       <Route path="/users" element={<Users />} />
       <Route path="/settings" element={<Settings />} />
