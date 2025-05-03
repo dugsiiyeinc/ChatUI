@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import { Card } from '../components/ui/Card';
-import {CardContent} from '../components/ui/Card'
+import { Card ,CardContent} from '../components/ui/Card'
 
 import { Button } from "../components/ui/Button";
 import { Star } from "lucide-react";
