@@ -1,25 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { signIn } from '../lib/auth';
+import { supabase } from '../lib/supabase'; // supabase config
 
 const SignInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     setError(null);
 
-    try {
-      await signIn(email, password); // login
-      navigate('/home'); // go to home immediately
-    } catch (error) {
-      setError(error.message || 'Invalid credentials');
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      setError(error.message);
+      setIsLoading(false);
     }
+    // Else, session will be handled in useEffect
   };
+
+  // useEffect(() => {
+  //   const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
+  //     if (event === 'SIGNED_IN' && session) {
+  //       setIsLoading(false); // ✅ stop loading
+  //       navigate('/home');
+  //     }
+  //   });
+  
+  //   return () => {
+  //     listener.subscription.unsubscribe();
+  //   };
+  // }, [navigate]);
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -40,7 +60,7 @@ const SignInPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-2 border rounded-md focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-4 py-2 border rounded-md"
               placeholder="your@email.com"
             />
           </div>
@@ -52,16 +72,17 @@ const SignInPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-4 py-2 border rounded-md focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-4 py-2 border rounded-md"
               placeholder="••••••••"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-md transition duration-200"
+            className="w-full bg-orange-600 text-white py-2 px-4 rounded-md"
+            disabled={isLoading}
           >
-            Sign In
+            {isLoading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
 

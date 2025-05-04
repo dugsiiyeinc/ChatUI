@@ -44,12 +44,18 @@ const SignUpPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-2">Account Created Successfully!</h1>
+          <h1 className="text-2xl font-bold mb-2 text-green-700">Account Created Successfully!</h1>
           <p className="text-gray-600">Redirecting to sign in...</p>
+  
+          {/* Waxaa lagu daray tan si user-ka loo wargeliyo */}
+          <p className="text-sm mt-2 text-gray-400 italic">
+            If your browser asks to change your password, it may be because the password you used was previously leaked online. Please consider using a stronger one.
+          </p>
         </div>
       </div>
     );
   }
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
