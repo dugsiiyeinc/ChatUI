@@ -12,7 +12,7 @@ const SignInPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    setIsLoading(false);
     setError(null);
 
     const { error } = await supabase.auth.signInWithPassword({
@@ -27,18 +27,18 @@ const SignInPage = () => {
     // Else, session will be handled in useEffect
   };
 
-  // useEffect(() => {
-  //   const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
-  //     if (event === 'SIGNED_IN' && session) {
-  //       setIsLoading(false); // ✅ stop loading
-  //       navigate('/home');
-  //     }
-  //   });
+  useEffect(() => {
+    const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' && session) {
+        setIsLoading(false); // ✅ stop loading
+        navigate('/');
+      }
+    });
   
-  //   return () => {
-  //     listener.subscription.unsubscribe();
-  //   };
-  // }, [navigate]);
+    return () => {
+      listener.subscription.unsubscribe();
+    };
+  }, [navigate]);
   
 
   return (
@@ -83,6 +83,12 @@ const SignInPage = () => {
             disabled={isLoading}
           >
             {isLoading ? 'Signing in...' : 'Sign In'}
+            {/* {isLoading && (
+  <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 z-50">
+    <span className="text-orange-600 font-semibold text-lg">Loading...</span>
+  </div>
+)} */}
+
           </button>
         </form>
 
