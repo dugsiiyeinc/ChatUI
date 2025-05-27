@@ -54,7 +54,7 @@ npm install
 dnpm run dev
 ```
 
-> App-ka wuxuu si toos ah uga furmi doonaa: `http://localhost:5173`
+> App-ka wuxuu si toos ah uga furmi doonaa: `https://dugsiiyechat.netlify.app/`
 
 ---
 
