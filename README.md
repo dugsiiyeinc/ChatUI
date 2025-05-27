@@ -67,15 +67,15 @@ Chatbot-ka ChatUi wuxuu kaa caawin karaa inaad hesho jawaabo degdeg ah oo ku saa
 
 🎓 Mentorship-ka Dugsiiye maxaa lagu bartaa?
 
-🧭 Maxaad iigu talin lahayd si aan Dugsiiye uga faa’iidaysto?
+🧭 Maxaad iigu talin lahayd si aan Dugsiiye uga faa'iidaysto?
 
-🎯 Dugsiiye maxay xooga saartaa?
+🎯 Dugsiiye maxee xooga saartaa?
 
-👩‍💻 Haddii aan Dugsiiye kusoo biiro oo juhdi badan sameeyo fullstack developer ma noqon karaa?
+👩‍💻 Hadii cilad iga qabsato dhanka cashirka ama projectka ma heli karaa team i caawiya? 
 
 🆘 Haddii cilad iga qabsato dhanka casharka ama project-ka, ma heli karaa team i caawiya?
 
-🔍 Waa maxay farqiga u dhexeeya JavaScript iyo React?
+🔍 waa maxay Farqiga u dhexeeya JavaScript iyo React ?
 
 🚀 Sidee ku bilaabi karaa barashada Fullstack?
 
