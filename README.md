@@ -58,6 +58,29 @@ dnpm run dev
 
 ---
 
+❓ Su'aalaha Weydiin Kartid Chatbot-ka
+Chatbot-ka ChatUi wuxuu kaa caawin karaa inaad hesho jawaabo degdeg ah oo ku saabsan arrimo badan oo la xiriira Dugsiiye. Tusaalooyin:
+
+💭 Dugsiiye maxay qabataa?
+
+💸 Dugsiiye ma bixisaa discount?
+
+🎓 Mentorship-ka Dugsiiye maxaa lagu bartaa?
+
+🧭 Maxaad iigu talin lahayd si aan Dugsiiye uga faa’iidaysto?
+
+🎯 Dugsiiye maxay xooga saartaa?
+
+👩‍💻 Haddii aan Dugsiiye kusoo biiro oo juhdi badan sameeyo fullstack developer ma noqon karaa?
+
+🆘 Haddii cilad iga qabsato dhanka casharka ama project-ka, ma heli karaa team i caawiya?
+
+🔍 Waa maxay farqiga u dhexeeya JavaScript iyo React?
+
+🚀 Sidee ku bilaabi karaa barashada Fullstack?
+
+🧪 Sidee u ogaan karaa koorsada iga haboon ee Dugsiiye?
+
 ## 🔚 Gunaanad
 
 ChatUi waa mashruuc waxbarasho oo diiradda saaraya ardayda Soomaaliyeed, gaar ahaan kuwa rabta inay si sahlan u fahmaan casharrada. Waxaa loogu talagalay ardeyda Dugsiiye dhigata iyo kuwa raba inay kuso biiraan Dusgiiye.
