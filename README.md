@@ -72,6 +72,7 @@ Waxaad mashruucan si fudud ugu tijaabin kartaa adigoo isticmaalaya:
 - **npm**
 
 Haddii aad wax su’aalo ah qabto, xor ayaad u tahay inaad nala soo xiriirto 💬
+ Email : istarmohamed503@gmail.com
 
 ---
 
