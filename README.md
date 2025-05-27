@@ -60,7 +60,7 @@ dnpm run dev
 
 ## 🔚 Gunaanad
 
-ChatUi waa mashruuc waxbarasho oo diiradda saaraya ardayda Soomaaliyeed, gaar ahaan kuwa rabta inay si sahlan u fahmaan casharrada. Waxaa loogu talagalay barashada React, Tailwind, API Integration, iyo Authentication.
+ChatUi waa mashruuc waxbarasho oo diiradda saaraya ardayda Soomaaliyeed, gaar ahaan kuwa rabta inay si sahlan u fahmaan casharrada. Waxaa loogu talagalay ardeyda Dugsiiye dhigata iyo kuwa raba inay kuso biiraan Dusgiiye.
 
 ---
 
