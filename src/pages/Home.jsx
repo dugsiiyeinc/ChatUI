@@ -3,9 +3,12 @@ import React from "react";
 
 export default function Home() {
   return (
+     
     <div className="min-h-screen bg-gray-50">
+     
       {/* Part 1: Hero Section */}
       <div className="bg-gradient-to-r from-gray-900 to-gray-800 py-20 px-4">
+       
         <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
           <div className="lg:w-1/2 mb-10 lg:mb-0">
             <h1 className="text-5xl md:text-6xl font-bold text-amber-400 mb-6">

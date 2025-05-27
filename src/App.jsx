@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import ChatPage from "./pages/ChatPage";
+import Settings from "./pages/Settings";
 // import SideBar from "./components/Sidebar";
 
 
@@ -14,6 +15,13 @@ import ChatPage from "./pages/ChatPage";
 // import UpdateMessage from "./components/UpdateMessage";
 
 function App() {
+    const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
  
 
 
@@ -21,6 +29,8 @@ function App() {
   return (
     <BrowserRouter>
      <Header/>
+       {/* your routes or layout */}
+      <Settings setTheme={setTheme} currentTheme={theme} />
     
       
       {/* <NavBar /> */}

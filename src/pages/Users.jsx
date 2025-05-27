@@ -152,7 +152,7 @@ const UsersPage = () => {
   };
 
   return (
-    <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 bg-zinc-100 min-h-screen">
+    <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 bg-gray-900 min-h-screen">
       {users.map((user) => (
         <Card key={user.id} className="shadow-xl rounded-2xl">
           <CardContent className="p-4">

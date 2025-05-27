@@ -3,9 +3,11 @@ import { createRoot } from 'react-dom/client'
 // import {createBrowserRouter} from 'react-router-dom'
 
 import App from './App.jsx'
-import './index.css'
+// import './index.css'
 import { ThemeProvider } from './context/ThemeContext.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
+import './index.css'; // or './main.css'
+
 
 
 
