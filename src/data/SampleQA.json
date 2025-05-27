@@ -9,11 +9,11 @@
   },
   {
     "question": "Mentorship-ka Dugsiiye maxaa lagu bartaa?",
-    "answer": "Mentorship-ka Dugsiiye waxaad ku baran kartaa xirfado la xiriira barnaamijinta, design, AI, iyo skills kale oo la taaban karo."
+    "answer": "Mentorship-ka Dugsiiye waxaa lagu bartaa barnaamijyada casriga ah sida Frontend, Backend, Mobile App Development, iyo Artificial Intelligence (AI). Barashadu ma aha mid keliya oo qoraal ah, balse waa mid hands-on ah, taasoo macnaheedu yahay in ardaygu si toos ah u taabanayo, una tijaabinayo waxa uu barto. Waxa kale oo barnaamijkan ka mid ah xalinta dhibaatooyin dhab ah (real-world problems), kuwaas oo ardaygu ku xallinayo aqoonta uu ka bartay Dugsiiye, si uu ugu tababarto xirfadaha dhabta ah ee suuqa shaqada ."
   },
   {
     "question": "Maxay yihiin maadooyinka Dugsiiye bixiso?",
-    "answer": "Dugsiiye waxay bixisaa maadooyin ay ka mid yihiin: Barnaamijinta (Programming), Naqshadeynta (Design), Sirdoonka Artificial (AI), Xirfadaha xirfadeed iyo xog uruurinta iyo falanqaynta."
+    "answer": "Dugsiiye waxay bixisaa maadooyin ay ka mid yihiin: Barnaamijinta Mentorshipka kuwaasoo lagu barto coding oo ay ka mid yihiin Frontend , backend , flutter and  Artificial Inteligence (AI)."
   },
   {
     "question": "Maxay yihiin casharrada muhiimka ah ee Dugsiiye?",
@@ -24,15 +24,15 @@
     "answer": "Waxaan kugula talinayaa: Joogtee jadwal waxbarasho maalinle ah, qoraal samee inta aad casharro baranayso, la xiriir mentors-ka marka aad wax fahmi weydo, samee ku celcelin badan, iyo ka faa'iidayso qiimo dhimista iyo webinars-ka Dugsiiye."
   },
   {
-    "question": "Maxaa muhiim u ah fahamka Dugsiiye?",
+    "question": "Dugsiiye maxee xooga saartaa?",
     "answer": "Dugsiiye waxay xooga saartaa xirfadaha suuqyada shaqada loo baahan yahay, waxayna bixisaa koorsooyin habaysan oo aad kula kulmi karto khabiiro kala duwan. Waxbarashada online-ka ah waxay kuu ogolaaneysaa inaad si dabacsan wax u barato."
   },
   {
-    "question": "Haddii aan Dugsiiye kusoo biiro oo juhdi badan sameeyo, fullstack developer ma noqon karaa?",
+    "question": "Haddii aan Dugsiiye kusoo biiro oo juhdi badan sameeyo fullstack developer ma noqon karaa?",
     "answer": "Haa, haddii aad si joogto ah u barato koorsooyinka Dugsiiye isla markaana dadaal badan sameyso, waad noqon kartaa Fullstack Developer xirfad leh."
   },
   {
-    "question": "Hadii cilad iga qabsato dhanka cashirka ama project-ka, ma heli karaa team i caawiya? ",
+    "question": "Hadii cilad iga qabsato dhanka cashirka ama projectka ma heli karaa team i caawiya? ",
     "answer": "Waad heli kartaa. Dugsiiye waxa uu leeyahay support team 24-saac diyaar ah oo kuu fududeynaya xalinta ciladaha casharrada iyo mashruucyada."
   },
   {
@@ -44,7 +44,7 @@
     "answer": "React waa library ay sameysay Facebook oo kuu fududeyneysa in aad dhisto user interfaces (UI) casri ah, gaar ahaan dhinaca frontend-ka websaydyada."
   },
   {
-    "question": "Farqiga u dhexeeya JavaScript iyo React waa maxay?",
+    "question": "waa maxay Farqiga u dhexeeya JavaScript iyo React ?",
     "answer": "JavaScript waa luqadda aasaasiga ah ee barnaamijinta browser-ka, halka React uu yahay library ka dhisan JavaScript oo kuu sahlaaya in aad si fudud u maareyso UI-ga webkaaga."
   },
   {
