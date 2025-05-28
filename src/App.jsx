@@ -2,7 +2,7 @@
 // import React, { useState, useEffect } from 'react';
 import { useEffect} from 'react';
 
-
+import { AuthProvider } from './context/AuthContext';
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
 
@@ -38,13 +38,15 @@ function App() {
     
       
       {/* <NavBar /> */}
-      <AppRoutes />
+      {/* <AppRoutes /> */}
        {/* <UpdateMessage/> */}
        {/* <Chatwindow chat={activeChat} />
 <ChatInput onSendMessage={handleSendMessage} /> */}
     {/* Sidebar */}
 
-
+        <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
      
       <Footer/>
     </BrowserRouter>

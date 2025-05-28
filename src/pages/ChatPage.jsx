@@ -13,11 +13,14 @@ const ChatPage = () => {
   const navigate = useNavigate();
   const { user, isLoading } = useAuth();
 
+  // ✅ Block access to chat page if user is not logged in
   useEffect(() => {
     if (!isLoading && !user) {
-      navigate("/signin"); // unauthenticated user redirected
+      navigate("/signin", { replace: true });
     }
   }, [user, isLoading, navigate]);
+
+  const username = user?.user_metadata?.username || user?.email;
 
   const handleSelectChat = (index) => setSelectedChatIndex(index);
 
@@ -108,55 +111,61 @@ const ChatPage = () => {
   if (isLoading) {
     return (
       <div className="h-screen flex items-center justify-center">
-        Loading...
+        <p className="text-gray-600 text-lg">Loading...</p>
       </div>
     );
   }
 
   return (
-    <div className="flex h-screen">
-      <ChatSidebar
-        chats={chats}
-        selectedChatIndex={selectedChatIndex}
-        onSelectChat={handleSelectChat}
-        onNewChat={handleNewChat}
-        onRename={handleRename}
-        onDelete={handleDelete}
-        onShare={handleShare}
-      />
+    <div className="flex flex-col h-screen">
+      <div className="p-4 border-b bg-gray-100 text-gray-800 text-center font-semibold">
+        Welcome, {username}
+      </div>
 
-      <div className="flex-1 flex flex-col">
-        <div className="flex-1 overflow-y-auto">
-          {selectedChatIndex !== null ? (
-            <Chatwindow chat={chats[selectedChatIndex]} />
-          ) : (
-            <div className="flex items-center justify-center h-full text-gray-500">
-              Select or start a new chat
+      <div className="flex flex-1">
+        <ChatSidebar
+          chats={chats}
+          selectedChatIndex={selectedChatIndex}
+          onSelectChat={handleSelectChat}
+          onNewChat={handleNewChat}
+          onRename={handleRename}
+          onDelete={handleDelete}
+          onShare={handleShare}
+        />
+
+        <div className="flex-1 flex flex-col">
+          <div className="flex-1 overflow-y-auto">
+            {selectedChatIndex !== null ? (
+              <Chatwindow chat={chats[selectedChatIndex]} />
+            ) : (
+              <div className="flex items-center justify-center h-full text-gray-500">
+                Select or start a new chat
+              </div>
+            )}
+          </div>
+
+          <div className="p-4 border-t bg-white">
+            <div className="flex gap-2">
+              <textarea
+                rows={1}
+                className="flex-1 resize-none p-2 border rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="Su’aashaada qor halkan..."
+                value={userInput}
+                onChange={(e) => setUserInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSend();
+                  }
+                }}
+              />
+              <button
+                onClick={handleSend}
+                className="px-4 py-2 bg-gray-900 hover:bg-blue-700 text-amber-400 rounded text-sm"
+              >
+                Send
+              </button>
             </div>
-          )}
-        </div>
-
-        <div className="p-4 border-t bg-white">
-          <div className="flex gap-2">
-            <textarea
-              rows={1}
-              className="flex-1 resize-none p-2 border rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="Su’aashaada qor halkan..."
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && !e.shiftKey) {
-                  e.preventDefault();
-                  handleSend();
-                }
-              }}
-            />
-            <button
-              onClick={handleSend}
-              className="px-4 py-2 bg-gray-900 hover:bg-blue-700 text-amber-400 rounded text-sm"
-            >
-              Send
-            </button>
           </div>
         </div>
       </div>

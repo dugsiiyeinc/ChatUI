@@ -19,8 +19,8 @@ const SignInPage = () => {
       console.error("Sign in error:", error.message);
       setError(error.message);
     } else {
-      console.log("Logged in user:", data.user);
-      alert("✅ Successfully logged in! Welcome to Dugsiiye Bot.");
+      const username = data.user.user_metadata?.username || data.user.email;
+      alert(`✅ Successfully logged in! Welcome, ${username}`);
       navigate('/chatpage');
     }
   };

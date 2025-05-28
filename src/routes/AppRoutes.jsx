@@ -14,6 +14,8 @@ import UnAuthenticatedRoute from "../components/UnAuthenticatedRoute";
 import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
 import Layout from "../Layouts/MainLayout";
+// import ChatPage from './pages/ChatPage';
+import PrivateRoute from '../components/PrivateRoute';
 
 
 export default function AppRoutes() {
@@ -27,7 +29,11 @@ export default function AppRoutes() {
       <Route path="/" element={<Login/>} />
         <Route path="/signup" element={< SignUpPage/>} />
         {/* <Route path="/profile" element={<Profile/>} /> */}
-      <Route path="/chatpage" element={<ChatPage/>} />
+   <Route path="/chatpage" element={
+  <PrivateRoute>
+    <ChatPage />
+  </PrivateRoute>
+} />
       <Route path="/users" element={<Users />} />
       <Route path="/settings" element={<Settings />} />
       <Route path='/signin'

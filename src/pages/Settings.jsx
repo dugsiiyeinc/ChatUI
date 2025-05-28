@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
+import { useAuth } from '../context/AuthContext';
 
 export default function Settings({ setTheme, currentTheme }) {
   const navigate = useNavigate();
+  const { user, isLoading } = useAuth();
+
+  // Block unauthorized users
+  useEffect(() => {
+    if (!isLoading && !user) {
+      navigate('/signin');
+    }
+  }, [user, isLoading, navigate]);
 
   const handleThemeChange = (e) => {
     setTheme(e.target.value.toLowerCase());
@@ -12,9 +21,15 @@ export default function Settings({ setTheme, currentTheme }) {
   const handleLogout = async () => {
     const confirmed = window.confirm('Do you want to log out?');
     if (confirmed) {
-      await supabase.auth.signOut();
-      alert('You have been logged out.');
-      navigate('/signin');
+      const { error } = await supabase.auth.signOut({ scope: 'local' });
+
+      if (error) {
+        console.error('Logout failed:', error.message);
+        alert('Logout error: ' + error.message);
+      } else {
+        alert('You have been logged out.');
+        navigate('/signin');
+      }
     }
   };
 
@@ -22,12 +37,20 @@ export default function Settings({ setTheme, currentTheme }) {
     (currentTheme || 'light').charAt(0).toUpperCase() +
     (currentTheme || 'light').slice(1);
 
+  const username = user?.user_metadata?.username || user?.email;
+
   return (
     <div className="min-h-screen bg-gray-900 dark:bg-gray-100 p-8">
       <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-2xl rounded-2xl p-10">
         <h2 className="text-4xl font-bold mb-8 text-center text-blue-700 dark:text-blue-300">
           ⚙️ Dejinta Isticmaalaha
         </h2>
+
+        {user && (
+          <div className="text-center text-gray-700 dark:text-gray-200 mb-8">
+            Logged in as: <span className="font-semibold">{username}</span>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
