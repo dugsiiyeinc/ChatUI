@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ChatSidebar from "../components/ChatSidebar";
 import Chatwindow from "../components/Chatwindow";
 import SampleQA from "../data/SampleQA.json";
+import { useAuth } from "../context/AuthContext";
 
 const ChatPage = () => {
   const [chats, setChats] = useState([]);
   const [selectedChatIndex, setSelectedChatIndex] = useState(null);
   const [userInput, setUserInput] = useState("");
+
+  const navigate = useNavigate();
+  const { user, isLoading } = useAuth();
+
+  useEffect(() => {
+    if (!isLoading && !user) {
+      navigate("/signin"); // unauthenticated user redirected
+    }
+  }, [user, isLoading, navigate]);
 
   const handleSelectChat = (index) => setSelectedChatIndex(index);
 
@@ -94,6 +105,14 @@ const ChatPage = () => {
     setUserInput("");
   };
 
+  if (isLoading) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div className="flex h-screen">
       <ChatSidebar
@@ -117,7 +136,6 @@ const ChatPage = () => {
           )}
         </div>
 
-        {/* Updated input area */}
         <div className="p-4 border-t bg-white">
           <div className="flex gap-2">
             <textarea
@@ -141,7 +159,6 @@ const ChatPage = () => {
             </button>
           </div>
         </div>
-       
       </div>
     </div>
   );

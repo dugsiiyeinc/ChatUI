@@ -1,17 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
+import { useAuth } from "../context/AuthContext"; // ✅ make sure context exists
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useAuth(); // ✅ get current user
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // ✅ Protected Dugsiiye Bot link handler
+  const handleDugsiiyeBotClick = () => {
+    if (user) {
+      navigate("/chatpage");
+    } else {
+      navigate("/signin");
+    }
   };
 
   return (
     <div>
       <nav className="bg-gray-800 shadow-md py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Mobile Header */}
           <div className="flex justify-between items-center md:hidden">
             <Link to="/" className="text-amber-400 font-extrabold hover:text-white">Dugsiiye Bot</Link>
             <button 
@@ -30,46 +44,39 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex md:justify-between items-center">
-            <div className="flex items-center space-x-6 lg:space-x-8 ">
+          {/* Desktop Menu - Centered */}
+          <div className="hidden md:flex justify-center items-center">
+            <div className="flex items-center space-x-6 lg:space-x-8">
               <Link to="/" className="text-amber-400 font-extrabold hover:text-white">Dugsiiye Bot</Link>
               <Link to="/" className="text-amber-400 font-semibold hover:text-white">Home</Link>
               <Link to="/history" className="text-amber-400 font-semibold hover:text-white">History</Link>
               <Link to="/bot" className="text-amber-400 font-semibold hover:text-white">Bot</Link>
-              <Link to="/chatpage" className="text-amber-400 font-semibold hover:text-white">Dugsiiye Bot</Link>
+              <button
+                onClick={handleDugsiiyeBotClick}
+                className="text-amber-400 font-semibold hover:text-white"
+              >
+                Dugsiiye Bot
+              </button>
               <Link to="/users" className="text-amber-400 font-semibold hover:text-white">Testmonial</Link>
               <Link to="/settings" className="text-amber-400 font-semibold hover:text-white">Settings</Link>
             </div>
-            
-            <div className='flex items-center space-x-4 md:ml-8 lg:ml-auto'>
-              <Link to="/signin" className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
-                Sign In
-              </Link>
-              <Link to="/signup" className="inline-flex items-center justify-center px-4 py-2 border text-sm font-medium rounded-md text-orange-600 bg-white border-orange-600 hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
-                Sign Up
-              </Link>
-            </div>
           </div>
-          
+
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="md:hidden mt-4 flex flex-col space-y-4">
-              <Link to="/" className="text-amber-400 font-extrabold  hover:text-white py-2">Dugsiiye Bot</Link>
+              <Link to="/" className="text-amber-400 font-extrabold hover:text-white py-2">Dugsiiye Bot</Link>
               <Link to="/" className="text-amber-400 font-semibold hover:text-white py-2">Home</Link>
               <Link to="/history" className="text-amber-400 font-semibold hover:text-white py-2">History</Link>
               <Link to="/bot" className="text-amber-400 font-semibold hover:text-white py-2">Bot</Link>
-              <Link to="/chatpage" className="text-amber-400 font-semibold hover:text-white py-2">Dugsiiye Bot</Link>
+              <button
+                onClick={handleDugsiiyeBotClick}
+                className="text-left text-amber-400 font-semibold hover:text-white py-2"
+              >
+                Dugsiiye Bot
+              </button>
               <Link to="/users" className="text-amber-400 font-semibold hover:text-white py-2">Testmonial</Link>
               <Link to="/settings" className="text-amber-400 font-semibold hover:text-white py-2">Settings</Link>
-              <div className='flex flex-col space-y-2 pt-2'>
-                <Link to="/signin" className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
-                  Sign In
-                </Link>
-                <Link to="/signup" className="inline-flex items-center justify-center px-4 py-2 border text-sm font-medium rounded-md text-orange-600 bg-white border-orange-600 hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
-                  Sign Up
-                </Link>
-              </div>
             </div>
           )}
         </div>

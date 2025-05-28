@@ -1,50 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { supabase } from '../lib/supabase'; // supabase config
+import { supabase } from '../lib/supabase';
 
 const SignInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(false);
-    setError(null);
-
-    const { error } = await supabase.auth.signInWithPassword({
+  const handleLogin = async (email, password) => {
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
     if (error) {
+      console.error("Sign in error:", error.message);
       setError(error.message);
-      setIsLoading(false);
+    } else {
+      console.log("Logged in user:", data.user);
+      alert("✅ Successfully logged in! Welcome to Dugsiiye Bot.");
+      navigate('/chatpage');
     }
-    // Else, session will be handled in useEffect
   };
 
-  useEffect(() => {
-    const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN' && session) {
-        setIsLoading(false); // ✅ stop loading
-        navigate('/');
-      }
-    });
-  
-    return () => {
-      listener.subscription.unsubscribe();
-    };
-  }, [navigate]);
-  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError(null);
+
+    if (!email.trim() || !password.trim()) {
+      setError("Email and password are required.");
+      setIsLoading(false);
+      return;
+    }
+
+    await handleLogin(email, password);
+    setIsLoading(false);
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-center mb-6">Sign In</h2>
+        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Sign In</h2>
 
         {error && (
           <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md text-sm">
@@ -79,16 +78,10 @@ const SignInPage = () => {
 
           <button
             type="submit"
-            className="w-full bg-orange-600 text-white py-2 px-4 rounded-md"
+            className="w-full bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-700 transition"
             disabled={isLoading}
           >
             {isLoading ? 'Signing in...' : 'Sign In'}
-            {/* {isLoading && (
-  <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 z-50">
-    <span className="text-orange-600 font-semibold text-lg">Loading...</span>
-  </div>
-)} */}
-
           </button>
         </form>
 
