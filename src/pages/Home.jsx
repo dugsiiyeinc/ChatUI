@@ -3,6 +3,10 @@ import React from "react";
 
 export default function Home() {
   return (
+    <div className="bg-white dark:bg-gray-900 text-black dark:text-white">
+  
+
+
      
     <div className="min-h-screen bg-gray-50">
      
@@ -152,6 +156,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

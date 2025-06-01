@@ -1,3 +1,5 @@
+// import { FaSun, FaMoon } from 'react-icons/fa';
+
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 
@@ -5,7 +7,7 @@ import History from "../pages/History";
 import BotManager from "../pages/BotManager";
 import Users from "../pages/Users";
 import Settings from "../pages/Settings";
-import React from "react";
+import React, { useState } from "react";
 import ChatPage from "../pages/ChatPage";
 
 // import Profile from "../components/Profile";
@@ -16,11 +18,16 @@ import SignUpPage from "../pages/SignUpPage";
 import Layout from "../Layouts/MainLayout";
 // import ChatPage from './pages/ChatPage';
 import PrivateRoute from '../components/PrivateRoute';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
+// import { useState } from "react";
 
 export default function AppRoutes() {
+  const [darkMode, setDarkMode] = useState(true);
+ 
   return (
     <Routes>
+      
        <Route element={<Layout/>}></Route>
       <Route path="/" element={<Home />} />
       
@@ -51,6 +58,7 @@ export default function AppRoutes() {
                 </UnAuthenticatedRoute>
               }
             />
+          
     </Routes>
   );
 }

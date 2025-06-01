@@ -7,6 +7,9 @@ import App from './App.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import './index.css'; // or './main.css'
+import DarkModeProvider from './context/DarkModeProvider.jsx'
+// import DarkModeProvider from './context/DarkModeContext';
+
 
 
 
@@ -16,10 +19,13 @@ import './index.css'; // or './main.css'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
      <ThemeProvider>
+      <DarkModeProvider>
+        
       <AuthProvider>
       <App />
 
       </AuthProvider>
+      </DarkModeProvider>
    
 
      </ThemeProvider>

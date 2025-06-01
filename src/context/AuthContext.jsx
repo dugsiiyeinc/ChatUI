@@ -1,15 +1,16 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { supabase } from "../lib/supabase";
+// src/context/AuthContext.jsx
+import { createContext, useContext, useEffect, useState } from 'react';
+import { supabase } from '../lib/supabase';
 
 const AuthContext = createContext(null);
 
-export function AuthProvider({ children }) {
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState(null); // optional: extend if you store more profile info
   const [isLoading, setIsLoading] = useState(true);
 
+  // ✅ Check session on load
   useEffect(() => {
-    // ✅ Marka page reload dhaco, check session
     const getSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
 
@@ -19,12 +20,11 @@ export function AuthProvider({ children }) {
       setIsLoading(false);
     };
 
-    getSession(); // run initial session check
+    getSession();
 
-    // ✅ Dhageyso event-ka SIGNED_IN iyo SIGNED_OUT
+    // ✅ Listen for login/logout events
     const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
       console.log("Auth event:", event);
-      console.log("Session:", session);
 
       if (event === 'SIGNED_IN' && session?.user) {
         setUser(session.user);
@@ -40,12 +40,12 @@ export function AuthProvider({ children }) {
     };
   }, []);
 
-  // ✅ Sax logout function
+  // ✅ Logout function
   const logout = async () => {
     try {
       await supabase.auth.signOut();
     } catch (error) {
-      console.error('Error signing out:', error);
+      console.error('Error signing out:', error.message);
     }
   };
 
@@ -62,9 +62,10 @@ export function AuthProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
-}
+};
 
-export function useAuth() {
+// ✅ Custom hook
+export const useAuth = () => {
   const context = useContext(AuthContext);
 
   if (context === null) {
@@ -72,4 +73,4 @@ export function useAuth() {
   }
 
   return context;
-}
+};

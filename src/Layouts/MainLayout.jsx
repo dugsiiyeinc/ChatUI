@@ -1,4 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
+import { FaSun, FaMoon } from 'react-icons/fa';
+
 
 export default function Layout() {
   return (

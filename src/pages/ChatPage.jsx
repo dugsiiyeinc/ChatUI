@@ -118,9 +118,9 @@ const ChatPage = () => {
 
   return (
     <div className="flex flex-col h-screen">
-      <div className="p-4 border-b bg-gray-100 text-gray-800 text-center font-semibold">
+      {/* <div className="p-4 border-b bg-gray-100 text-gray-800 text-center font-semibold">
         Welcome, {username}
-      </div>
+      </div> */}
 
       <div className="flex flex-1">
         <ChatSidebar

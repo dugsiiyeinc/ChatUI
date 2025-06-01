@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { signUp } from '../lib/auth'; // <-- changed from signIn to signUp
+import { signUp } from '../lib/auth';
 import { useAuth } from '../context/AuthContext';
 
 const SignUpPage = () => {
@@ -8,6 +8,8 @@ const SignUpPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
@@ -25,10 +27,16 @@ const SignUpPage = () => {
       return;
     }
 
+    const passwordRegex = /[@0-9]/;
+    if (!passwordRegex.test(password)) {
+      setError("Password must include at least one number or the @ symbol");
+      setIsLoading(false);
+      return;
+    }
+
     try {
       await signUp(email, password, username);
       setSuccess(true);
-
       setTimeout(() => {
         navigate('/signin');
       }, 3000);
@@ -46,8 +54,6 @@ const SignUpPage = () => {
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-2 text-green-700">Account Created Successfully!</h1>
           <p className="text-gray-600">Redirecting to sign in...</p>
-  
-          {/* Waxaa lagu daray tan si user-ka loo wargeliyo */}
           <p className="text-sm mt-2 text-gray-400 italic">
             If your browser asks to change your password, it may be because the password you used was previously leaked online. Please consider using a stronger one.
           </p>
@@ -55,7 +61,6 @@ const SignUpPage = () => {
       </div>
     );
   }
-  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
@@ -109,7 +114,7 @@ const SignUpPage = () => {
               </label>
               <input
                 id="password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
                 placeholder="••••••••"
                 value={password}
@@ -117,7 +122,16 @@ const SignUpPage = () => {
                 required
                 minLength={6}
               />
-              <p className="text-xs text-gray-500 mt-1">Must be at least 6 characters</p>
+              <div className="text-xs text-gray-500 mt-1">
+                Must be at least 6 characters and contain @ or number
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="text-sm text-orange-600 hover:underline mt-1"
+              >
+                {showPassword ? 'Hide password' : 'Show password'}
+              </button>
             </div>
 
             <div className="mb-6">
@@ -126,13 +140,20 @@ const SignUpPage = () => {
               </label>
               <input
                 id="confirmPassword"
-                type="password"
+                type={showConfirmPassword ? 'text' : 'password'}
                 className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
                 placeholder="••••••••"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
+              <button
+                type="button"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                className="text-sm text-orange-600 hover:underline mt-1"
+              >
+                {showConfirmPassword ? 'Hide password' : 'Show password'}
+              </button>
             </div>
 
             <button

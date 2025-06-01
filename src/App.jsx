@@ -19,6 +19,7 @@ import ChatPage from "./pages/ChatPage";
 // import UpdateMessage from "./components/UpdateMessage";
 
 function App() {
+  //  const [darkMode, setDarkMode] = useState(true);
   //   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
 
   // useEffect(() => {

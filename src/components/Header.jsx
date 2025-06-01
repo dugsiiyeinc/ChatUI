@@ -6,6 +6,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useAuth();
   const navigate = useNavigate();
+   const [darkMode, setDarkMode] = useState(true);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -60,6 +61,13 @@ const Header = () => {
             </button>
             <Link to="/users" className="text-amber-400 font-semibold hover:text-white py-2">Testmonial</Link>
             <Link to="/settings" className="text-amber-400 font-semibold hover:text-white py-2">Settings</Link>
+             <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-1 rounded hover:bg-gray-700"
+            title="Toggle Theme"
+          >
+            {darkMode ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
             {user && (
               <div className="text-sm text-gray-300 mt-2">
                 Welcome, {username}

@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase';
 const SignInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -59,26 +60,33 @@ const SignInPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-2 border rounded-md"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
               placeholder="your@email.com"
             />
           </div>
 
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">Password</label>
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-4 py-2 border rounded-md"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
               placeholder="••••••••"
             />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="text-sm text-orange-600 hover:underline mt-1"
+            >
+              {showPassword ? 'Hide password' : 'Show password'}
+            </button>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-700 transition"
+            className="w-full bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-700 transition disabled:bg-orange-400"
             disabled={isLoading}
           >
             {isLoading ? 'Signing in...' : 'Sign In'}
