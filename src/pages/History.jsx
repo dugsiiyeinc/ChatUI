@@ -1,171 +1,134 @@
-import React from "react";
-import { MessageSquare, Clock, CalendarDays, ChartBar, PieChart as PieIcon } from "lucide-react";
+import React, { useState } from 'react';
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell
-} from "recharts";
-import HistoryIntro from "../components/HistoryIntro";
+  BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell
+} from 'recharts';
+import DateRangeDropdown from './DateRangeDropdown';
 
-// Sample data for chats per year
-const barData = [
-  { year: 2011, chats: 12 },
-  { year: 2012, chats: 18 },
-  { year: 2013, chats: 25 },
-  { year: 2014, chats: 30 },
-  { year: 2015, chats: 28 },
-  { year: 2016, chats: 35 },
-  { year: 2017, chats: 40 },
-  { year: 2018, chats: 45 },
-  { year: 2019, chats: 50 },
-  { year: 2020, chats: 55 },
-  { year: 2021, chats: 60 },
-  { year: 2022, chats: 65 },
-  { year: 2023, chats: 70 },
-  { year: 2024, chats: 75 },
-  { year: 2025, chats: 80 }
-];
-
-// Grouped data for pie chart
-const pieData = [
-  { name: "2011-2015", value: 113 },
-  { name: "2016-2020", value: 225 },
-  { name: "2021-2025", value: 350 }
-];
-
-const COLORS = ["#4f46e5", "#10b981", "#f59e0b"];
-
-const historyData = [
-  {
-    id: 1,
-    date: "April 21, 2025",
-    time: "10:30 PM",
-    message: "Sideen u yareyn karaa caloosheyda?",
-    change: "Waxaad bilaawday jimicsi habeen kasta. Isbeddel muuqda ayaa bilaabanaya.",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b"
+const chartData = {
+  "Last 7 Days": {
+    bar: [{ month: "July", chats: 10 }],
+    pie: [
+      { name: "General", value: 3 },
+      { name: "Symptoms", value: 5 },
+      { name: "Nutrition", value: 2 },
+    ],
   },
-  {
-    id: 2,
-    date: "April 20, 2025",
-    time: "9:50 PM",
-    message: "Miss wordd yaa qaaday ?",
-    change: "waxaa qaatay jawaahir oo kasoo jeeda soomaliya .",
-    image: "https://alchetron.com/cdn/jawahir-ahmed-81fe236f-afa5-4624-9332-6b662621a28-resize-750.jpeg"
+  "Last 30 Days": {
+    bar: [
+      { month: "June", chats: 25 },
+      { month: "July", chats: 30 },
+    ],
+    pie: [
+      { name: "General", value: 10 },
+      { name: "Symptoms", value: 25 },
+      { name: "Nutrition", value: 5 },
+    ],
   },
-  {
-    id: 3,
-    date: "April 19, 2025",
-    time: "8:45 PM",
-    message: "Cunto noocee ah ayaan cunaa aan kaluun & digaag la’aan?",
-    change: "Waxaa lagu taliyey bariis cad, khudaar & rooti adag.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8SXFJr-MT7frRR3K6Gt42v_UPygxTP3q5ng&s"
+  "Last 90 Days": {
+    bar: [
+      { month: "May", chats: 40 },
+      { month: "June", chats: 55 },
+      { month: "July", chats: 60 },
+    ],
+    pie: [
+      { name: "General", value: 25 },
+      { name: "Symptoms", value: 50 },
+      { name: "Nutrition", value: 25 },
+    ],
   },
-  {
-    id: 4,
-    date: "April 19, 2025",
-    time: "8:45 PM",
-    message: "Sidee Fullstak ku noqonkaraa ?",
-    change: "Haa waad noqonkartnaa balse waa inaa barata fronent /backend.",
-    image: "https://media.istockphoto.com/id/2148306092/photo/it-developer-with-stressful-overworked-in-creating-online-software-code-gusher.webp?a=1&b=1&s=612x612&w=0&k=20&c=FYmAPqiAxNsz7Sn6uP00aB3sxHbhCEcF4IUvOp6VGp0="
+  "This Year": {
+    bar: [
+      { month: "April", chats: 30 },
+      { month: "May", chats: 40 },
+      { month: "June", chats: 60 },
+      { month: "July", chats: 70 },
+    ],
+    pie: [
+      { name: "General", value: 35 },
+      { name: "Symptoms", value: 45 },
+      { name: "Nutrition", value: 20 },
+    ],
   },
-  {
-    id: 5,
-    date: "April 19, 2025",
-    time: "8:45 PM",
-    message: "Hooyada Uurka leh ma qaadi kartaa culees ?",
-    change: "my ma qaadi karto waa in laga taxataraa hooyada marka ay xaalas uurka ku jirto.",
-    image: "https://media.istockphoto.com/id/1190394881/photo/the-beginning-of-a-beautiful-bond.webp?a=1&b=1&s=612x612&w=0&k=20&c=VNkTCHo_yxy33_uzqWY67BR6LoxOahUBskXBTx0n6_4="
-  }
-];
+};
 
-export default function History() {
+const PIE_COLORS = ["#6366f1", "#10b981", "#f59e0b"];
+const LABEL_COLORS = ["#6366f1", "#10b981", "#f59e0b"];
+
+export default function HistoryPage() {
+  const [selectedRange, setSelectedRange] = useState("This Year");
+
+  const barData = chartData[selectedRange].bar;
+  const pieData = chartData[selectedRange].pie;
+
   return (
-    <div className="p-6 bg-zinc-900 min-h-screen text-white">
-      <h1 className="text-3xl font-bold mb-6">📜 Chat History & Progress</h1>
-      <HistoryIntro />
-
-      {/* Charts Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <div className="bg-zinc-800 rounded-2xl shadow-lg p-5">
-          <div className="flex items-center mb-4">
-            <ChartBar className="w-6 h-6 text-indigo-500 mr-2" />
-            <h2 className="text-xl font-semibold">Chats per Year (2011–2025)</h2>
-          </div>
-          <ResponsiveContainer width="100%" height={250}>
-            <BarChart data={barData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="year" tick={{ fill: '#9CA3AF' }} />
-              <YAxis tick={{ fill: '#9CA3AF' }} />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="chats" fill="#6366F1" radius={[4, 4, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+    <div className="min-h-screen bg-gray-900 text-white px-6 py-10">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold flex items-center gap-2">
+            📊 <span className="text-white">AI Health Chat History</span>
+          </h1>
+          <DateRangeDropdown selected={selectedRange} onChange={setSelectedRange} />
         </div>
 
-        <div className="bg-zinc-800 rounded-2xl shadow-lg p-5">
-          <div className="flex items-center mb-4">
-            <PieIcon className="w-6 h-6 text-green-400 mr-2" />
-            <h2 className="text-xl font-semibold">Chat Distribution by Period</h2>
+        {/* Charts */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          {/* Bar Chart */}
+          <div className="bg-gray-800 rounded-2xl p-6 shadow-md">
+            <h2 className="text-lg font-semibold text-indigo-300 mb-4">Chat Volume Over Time</h2>
+            <ResponsiveContainer width="100%" height={220}>
+              <BarChart data={barData}>
+                <XAxis dataKey="month" stroke="#d1d5db" />
+                <YAxis stroke="#d1d5db" />
+                <Tooltip />
+                <Bar dataKey="chats" fill="#818cf8" radius={[6, 6, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
           </div>
-          <ResponsiveContainer width="100%" height={250}>
-            <PieChart>
-              <Pie
-                data={pieData}
-                dataKey="value"
-                nameKey="name"
-                cx="50%"
-                cy="50%"
-                outerRadius={80}
-                fill="#10B981"
-                label
-              >
-                {pieData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip />
-              <Legend align="center" verticalAlign="bottom" />
-            </PieChart>
-          </ResponsiveContainer>
+
+          {/* Pie Chart */}
+          <div className="bg-gray-800 rounded-2xl p-6 shadow-md">
+            <h2 className="text-lg font-semibold text-green-400 mb-4">Category Distribution</h2>
+            <ResponsiveContainer width="100%" height={220}>
+              <PieChart>
+                <Pie
+                  data={pieData}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={70}
+                  fill="#8884d8"
+                  dataKey="value"
+                  stroke="#1f2937"
+                  label={({ cx, cy, midAngle, innerRadius, outerRadius, index }) => {
+                    const RADIAN = Math.PI / 180;
+                    const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
+                    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+                    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+                    return (
+                      <text
+                        x={x}
+                        y={y}
+                        fill={LABEL_COLORS[index % LABEL_COLORS.length]}
+                        textAnchor={x > cx ? "start" : "end"}
+                        dominantBaseline="central"
+                        fontSize={14}
+                      >
+                        {pieData[index].value}
+                      </text>
+                    );
+                  }}
+                >
+                  {pieData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
-
-      {/* History Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-y-auto" style={{ maxHeight: '60vh' }}>
-        {historyData.map((item) => (
-          <div
-            key={item.id}
-            className="bg-zinc-800 rounded-2xl shadow-lg p-5 hover:shadow-2xl transition-shadow duration-300"
-          >
-            <img
-              src={item.image}
-              alt="Chat Visual"
-              className="w-full h-40 object-cover rounded-xl mb-4"
-            />
-            <div className="flex items-center text-sm text-zinc-400 mb-2">
-              <CalendarDays className="w-4 h-4 mr-1" /> {item.date}
-            </div>
-            <div className="flex items-center text-sm text-zinc-400 mb-2">
-              <Clock className="w-4 h-4 mr-1" /> {item.time}
-            </div>
-            <div className="flex items-start mb-2 text-zinc-300">
-              <MessageSquare className="w-4 h-4 mr-2 mt-1" />
-              <p>{item.message}</p>
-            </div>
-            <div className="text-green-400 text-sm mt-2 italic">{item.change}</div>
-          </div>
-        ))}
-      </div>
-     
     </div>
   );
 }

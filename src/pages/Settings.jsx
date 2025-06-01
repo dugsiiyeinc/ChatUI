@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../context/AuthContext';
+import { LogOut } from 'lucide-react';
 
 export default function Settings({ setTheme, currentTheme }) {
   const navigate = useNavigate();
   const { user, isLoading } = useAuth();
 
-  // Block unauthorized users
   useEffect(() => {
     if (!isLoading && !user) {
       navigate('/signin');
@@ -19,13 +19,10 @@ export default function Settings({ setTheme, currentTheme }) {
   };
 
   const handleLogout = async () => {
-    const confirmed = window.confirm('Do you want to log out?');
-    if (confirmed) {
+    if (window.confirm('Do you want to log out?')) {
       const { error } = await supabase.auth.signOut({ scope: 'local' });
-
       if (error) {
-        console.error('Logout failed:', error.message);
-        alert('Logout error: ' + error.message);
+        alert('Logout failed: ' + error.message);
       } else {
         alert('You have been logged out.');
         navigate('/signin');
@@ -40,27 +37,25 @@ export default function Settings({ setTheme, currentTheme }) {
   const username = user?.user_metadata?.username || user?.email;
 
   return (
-    <div className="min-h-screen bg-gray-900 dark:bg-gray-100 p-8">
-      <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-2xl rounded-2xl p-10">
-        <h2 className="text-4xl font-bold mb-8 text-center text-blue-700 dark:text-blue-300">
-          ⚙️ Dejinta Isticmaalaha
+    <div className="min-h-screen bg-gray-900 text-white py-12 px-6">
+      <div className="max-w-4xl mx-auto bg-gray-800 rounded-2xl shadow-xl p-10">
+        <h2 className="text-3xl font-bold mb-6 text-center text-blue-400">
+          ⚙️ User Settings
         </h2>
 
         {user && (
-          <div className="text-center text-gray-700 dark:text-gray-200 mb-8">
+          <div className="text-center text-gray-300 mb-10">
             Logged in as: <span className="font-semibold">{username}</span>
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <label className="block text-gray-800 dark:text-gray-100 font-semibold mb-2">
-              Theme
-            </label>
+            <label className="block text-sm font-medium mb-2">🌗 Theme</label>
             <select
               value={selectedTheme}
               onChange={handleThemeChange}
-              className="w-full p-3 border border-blue-200 rounded-lg focus:ring focus:ring-blue-300"
+              className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500"
             >
               <option>Light</option>
               <option>Dark</option>
@@ -68,41 +63,36 @@ export default function Settings({ setTheme, currentTheme }) {
           </div>
 
           <div>
-            <label className="block text-gray-800 dark:text-gray-100 font-semibold mb-2">
-              Language
-            </label>
-            <select className="w-full p-3 border border-blue-200 rounded-lg focus:ring focus:ring-blue-300">
+            <label className="block text-sm font-medium mb-2">🌍 Language</label>
+            <select className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500">
               <option>Somali</option>
               <option>English</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-gray-800 dark:text-gray-100 font-semibold mb-2">
-              Ogeysiisyada
-            </label>
-            <select className="w-full p-3 border border-blue-200 rounded-lg focus:ring focus:ring-blue-300">
+            <label className="block text-sm font-medium mb-2">🔔 Notifications</label>
+            <select className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500">
               <option>On</option>
               <option>Off</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-gray-800 dark:text-gray-100 font-semibold mb-2">
-              Nooca Akoonka
-            </label>
-            <select className="w-full p-3 border border-blue-200 rounded-lg focus:ring focus:ring-blue-300">
+            <label className="block text-sm font-medium mb-2">👤 Account Type</label>
+            <select className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500">
               <option>Student</option>
               <option>Admin</option>
             </select>
           </div>
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <button
             onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-600 text-white py-3 px-10 rounded-full font-bold shadow-md transition duration-300"
+            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg transition"
           >
+            <LogOut className="w-5 h-5" />
             Log Out
           </button>
         </div>
