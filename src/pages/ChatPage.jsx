@@ -108,13 +108,13 @@ const ChatPage = () => {
     setUserInput("");
   };
 
-  if (isLoading) {
-    return (
-      <div className="h-screen flex items-center justify-center">
-        <p className="text-gray-600 text-lg">Loading...</p>
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="h-screen flex items-center justify-center">
+  //       <p className="text-gray-600 text-lg">Loading...</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="flex flex-col h-screen">

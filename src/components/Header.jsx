@@ -1,14 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
+import { FaSun, FaMoon, FaBars } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 
 const Header = () => {
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useAuth();
   const navigate = useNavigate();
-   const [darkMode, setDarkMode] = useState(true);
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const username = user?.user_metadata?.username || user?.email;
 
   const handleDugsiiyeBotClick = () => {
     if (user) {
@@ -18,64 +21,70 @@ const Header = () => {
     }
   };
 
-  const username = user?.user_metadata?.username || user?.email;
+  // Handle dark mode toggle
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (darkMode) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
 
   return (
-    <nav className="bg-gray-800 shadow-md py-4">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="hidden md:flex justify-between items-center">
-          <div className="flex items-center space-x-6 lg:space-x-8">
-            <Link to="/" className="text-amber-400 font-extrabold hover:text-white">Dugsiiye Bot</Link>
-            <Link to="/" className="text-amber-400 font-semibold hover:text-white">Home</Link>
-            <Link to="/history" className="text-amber-400 font-semibold hover:text-white">History</Link>
-            <Link to="/bot" className="text-amber-400 font-semibold hover:text-white">Bot</Link>
-            <button
-              onClick={handleDugsiiyeBotClick}
-              className="text-amber-400 font-semibold hover:text-white"
-            >
-              Dugsiiye Bot
-            </button>
-            <Link to="/users" className="text-amber-400 font-semibold hover:text-white">Testmonial</Link>
-            <Link to="/settings" className="text-amber-400 font-semibold hover:text-white">Settings</Link>
-          </div>
+    <nav className="bg-gray-900 dark:bg-gray-800 text-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        {/* Left: Brand */}
+        <div className="text-amber-400 font-extrabold text-lg">Dugsiiye Bot</div>
 
-          {user && (
-            <div className="text-sm text-gray-300 ml-6">
-              Welcome, {username}
-            </div>
-          )}
+        {/* Desktop Nav */}
+        <div className="hidden md:flex flex-1 justify-center gap-6 text-amber-400 font-semibold">
+          <Link to="/" className="hover:text-white">Home</Link>
+          <Link to="/history" className="hover:text-white">History</Link>
+          <Link to="/bot" className="hover:text-white">Bot</Link>
+          <button onClick={handleDugsiiyeBotClick} className="hover:text-white">Dugsiiye Bot</button>
+          <Link to="/users" className="hover:text-white">Testmonial</Link>
+          <Link to="/settings" className="hover:text-white">Settings</Link>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 flex flex-col space-y-4">
-            <Link to="/" className="text-amber-400 font-extrabold hover:text-white py-2">Dugsiiye Bot</Link>
-            <Link to="/" className="text-amber-400 font-semibold hover:text-white py-2">Home</Link>
-            <Link to="/history" className="text-amber-400 font-semibold hover:text-white py-2">History</Link>
-            <Link to="/bot" className="text-amber-400 font-semibold hover:text-white py-2">Bot</Link>
-            <button
-              onClick={handleDugsiiyeBotClick}
-              className="text-left text-amber-400 font-semibold hover:text-white py-2"
-            >
-              Dugsiiye Bot
-            </button>
-            <Link to="/users" className="text-amber-400 font-semibold hover:text-white py-2">Testmonial</Link>
-            <Link to="/settings" className="text-amber-400 font-semibold hover:text-white py-2">Settings</Link>
-             <button
+        {/* Right: Dark Mode + User + Hamburger */}
+        <div className="flex items-center gap-3 ml-auto">
+          <button
             onClick={() => setDarkMode(!darkMode)}
-            className="p-1 rounded hover:bg-gray-700"
+            className="text-amber-400 text-xl"
             title="Toggle Theme"
           >
-            {darkMode ? <Sun size={16} /> : <Moon size={16} />}
+            {darkMode ? <FaSun /> : <FaMoon />}
           </button>
-            {user && (
-              <div className="text-sm text-gray-300 mt-2">
-                Welcome, {username}
-              </div>
-            )}
-          </div>
-        )}
+          {user && (
+            <span className="text-sm text-gray-300 whitespace-nowrap hidden sm:inline">
+              Welcome, {username}
+            </span>
+          )}
+
+          {/* Hamburger (visible on mobile) */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-amber-400 text-xl md:hidden"
+          >
+            <FaBars />
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden flex flex-col items-center gap-4 py-4 text-amber-400 font-semibold bg-gray-900 dark:bg-gray-800">
+          <Link to="/" className="hover:text-white" onClick={() => setIsMenuOpen(false)}>Home</Link>
+          <Link to="/history" className="hover:text-white" onClick={() => setIsMenuOpen(false)}>History</Link>
+          <Link to="/bot" className="hover:text-white" onClick={() => setIsMenuOpen(false)}>Bot</Link>
+          <button onClick={() => { handleDugsiiyeBotClick(); setIsMenuOpen(false); }} className="hover:text-white">Dugsiiye Bot</button>
+          <Link to="/users" className="hover:text-white" onClick={() => setIsMenuOpen(false)}>Testmonial</Link>
+          <Link to="/settings" className="hover:text-white" onClick={() => setIsMenuOpen(false)}>Settings</Link>
+        </div>
+      )}
     </nav>
   );
 };

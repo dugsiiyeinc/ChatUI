@@ -1,37 +1,35 @@
 import { Outlet, Link } from "react-router-dom";
 import { FaSun, FaMoon } from 'react-icons/fa';
 
-
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col md:flex-row text-sm md:text-base lg:text-lg ">
+    <div className="min-h-screen flex items-center justify-center bg-gray-200 dark:bg-black">
+      {/* Phone Frame Container */}
+      <div className="relative w-[390px] h-[844px] bg-[url('/frame.png')] bg-no-repeat bg-center bg-contain shadow-2xl">
+        {/* Screen Content Area inside the frame */}
+        <div className="absolute top-[50px] left-[18px] right-[18px] bottom-[50px] rounded-xl overflow-auto bg-white dark:bg-gray-900 text-black dark:text-white">
 
-      {/* Sidebar / Navbar */}
-      <nav className="bg-gray-800 w-full md:w-2/4 text-white">
-        <div className="p-5 flex flex-col space-y-6 items-center md:items-start">
+          {/* Optional: Navbar Sidebar */}
+          <nav className="bg-gray-800 p-4 flex flex-col space-y-3 items-center text-sm text-white">
+            <Link to="/" className="text-amber-400 font-semibold hover:text-white">Home</Link>
+            <Link to="/history" className="text-amber-400 font-semibold hover:text-white">History</Link>
+            <Link to="/bot" className="text-amber-400 font-semibold hover:text-white">Bot</Link>
+            <Link to="/chatpage" className="text-amber-400 font-semibold hover:text-white">Chatpage</Link>
+            <Link to="/users" className="text-amber-400 font-semibold hover:text-white">Users</Link>
+            <Link to="/settings" className="text-amber-400 font-semibold hover:text-white">Settings</Link>
 
-          <Link to="/" className="text-amber-400 font-semibold hover:text-white">Home</Link>
-          <Link to="/history" className="text-amber-400 font-semibold hover:text-white">History</Link>
-          <Link to="/bot" className="text-amber-400 font-semibold hover:text-white">Bot</Link>
-          <Link to="/chatpage" className="text-amber-400 font-semibold hover:text-white">Chatpage</Link>
-          <Link to="/users" className="text-amber-400 font-semibold hover:text-white">Users</Link>
-          <Link to="/settings" className="text-amber-400 font-semibold hover:text-white">Settings</Link>
+            <div className="flex flex-col space-y-2 w-full items-center pt-2">
+              <Link to="/signin" className="w-full text-center px-4 py-2 rounded-md bg-amber-400 text-white hover:bg-amber-500">Sign In</Link>
+              <Link to="/signup" className="w-full text-center px-4 py-2 rounded-md border text-orange-600 bg-white border-orange-600 hover:bg-orange-50">Sign Up</Link>
+            </div>
+          </nav>
 
-          <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
-            <Link to="/signin" className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-amber-400 hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
-              Sign In
-            </Link>
-            <Link to="/signup" className="inline-flex items-center justify-center px-4 py-2 border text-sm font-medium rounded-md text-orange-600 bg-white border-orange-600 hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">
-              Sign Up
-            </Link>
-          </div>
+          {/* Main Content Area */}
+          <main className="p-4">
+            <Outlet />
+          </main>
         </div>
-      </nav>
-
-      {/* Main Content */}
-      <main className="flex-1 p-4 overflow-y-auto bg-gray-50">
-        <Outlet />
-      </main>
+      </div>
     </div>
   );
 }
