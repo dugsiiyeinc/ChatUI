@@ -23,7 +23,7 @@ export default function Home() {
               Dugsiiye Bot allows you to easily ask questions related to Dugsiiye mentorship , advice, and other services. It’s an intelligent assistant available 24/7..
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/chat" className="px-8 py-3 bg-amber-500 text-white font-semibold rounded-lg shadow-md hover:bg-amber-600 transition-colors">
+              <Link to="/chatpage" className="px-8 py-3 bg-amber-500 text-white font-semibold rounded-lg shadow-md hover:bg-amber-600 transition-colors">
                 chats
               </Link>
               <Link to="/bot" className="px-8 py-3 border-2 border-amber-400 text-amber-400 font-semibold rounded-lg hover:bg-amber-400 hover:text-gray-900 transition-colors">
