@@ -17,10 +17,10 @@ export default function Home() {
         <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
           <div className="lg:w-1/2 mb-10 lg:mb-0">
             <h1 className="text-5xl md:text-6xl font-bold text-amber-400 mb-6">
-              Next Generation<br />Chat Interface
+              Dugsiiye Bot<br />Chat Interface
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-lg">
-              Build, customize and deploy intelligent chatbots for your business with our easy-to-use platform. No coding required.
+              Dugsiiye Bot allows you to easily ask questions related to Dugsiiye mentorship , advice, and other services. It’s an intelligent assistant available 24/7..
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/chat" className="px-8 py-3 bg-amber-500 text-white font-semibold rounded-lg shadow-md hover:bg-amber-600 transition-colors">
