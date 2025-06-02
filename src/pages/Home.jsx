@@ -59,7 +59,8 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-amber-500">Create Custom Bots</h3>
-                <p className="text-gray-600">Design and customize your own chatbots with different personalities and response patterns.</p>
+                <p className="text-gray-600">Design Your Own Dugsiiye Bots
+Build and customize unique Dugsiiye bots with different personalities and response styles tailored to educational needs..</p>
               </div>
             </div>
             
@@ -74,7 +75,8 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-amber-500">Manage Responses</h3>
-                <p className="text-gray-600">Configure how your bots respond to different inputs and train them with custom data sets.</p>
+                <p className="text-gray-600">Control How Dugsiiye Answers
+Set how your Dugsiiye bots respond to different student questions and train them with custom learning data for accurate replies..</p>
               </div>
             </div>
             
@@ -89,7 +91,8 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-amber-500">Performance Analytics</h3>
-                <p className="text-gray-600">Track bot performance, user satisfaction, and conversation metrics to improve engagement.</p>
+                <p className="text-gray-600">Track Dugsiiye’s Performance
+Monitor your bot’s efficiency, student engagement, and satisfaction to continually improve the learning support experience..</p>
               </div>
             </div>
             
@@ -104,7 +107,8 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-amber-500">Multi-Platform Integration</h3>
-                <p className="text-gray-600">Deploy your bots across multiple platforms and channels to reach users wherever they are.</p>
+                <p className="text-gray-600">Use Dugsiiye Anywhere
+Integrate Dugsiiye bots on websites, mobile apps, and messaging platforms to reach students wherever they are.~.</p>
               </div>
             </div>
           </div>
@@ -126,18 +130,18 @@ export default function Home() {
             <div className="order-2 lg:order-1">
               <div className="space-y-8">
                 <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors border border-gray-700">
-                  <h3 className="text-xl font-bold mb-3 text-amber-400">Customer Support</h3>
-                  <p className="text-gray-300">Provide 24/7 support to your customers with intelligent chatbots that can handle common inquiries, troubleshoot issues, and escalate to human agents when needed.</p>
+                  <h3 className="text-xl font-bold mb-3 text-amber-400">📞 Academic Help Desk</h3>
+                  <p className="text-gray-300">Provide 24/7 academic assistance to students with smart Dugsiiye bots that answer common questions, solve learning issues, and escalate to teachers when needed..</p>
                 </div>
                 
                 <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors border border-gray-700">
-                  <h3 className="text-xl font-bold mb-3 text-amber-400">Lead Generation</h3>
-                  <p className="text-gray-300">Capture and qualify leads through interactive conversations. Our bots can collect contact information, answer product questions, and schedule demos with your sales team.</p>
+                  <h3 className="text-xl font-bold mb-3 text-amber-400">🎯 Student Engagement</h3>
+                  <p className="text-gray-300">Capture and boost student interest through interactive conversations. Dugsiiye Bots can guide students, provide learning materials, and connect them with academic advisors..</p>
                 </div>
                 
                 <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors border border-gray-700">
-                  <h3 className="text-xl font-bold mb-3 text-amber-400">E-commerce Assistant</h3>
-                  <p className="text-gray-300">Help customers find products, answer questions about inventory and shipping, and provide personalized product recommendations to increase sales.</p>
+                  <h3 className="text-xl font-bold mb-3 text-amber-400">🛍️ Learning Advisor</h3>
+                  <p className="text-gray-300">Help learners access content, answer questions about lessons or subjects, and give personalized recommendations to support academic growth..</p>
                 </div>
               </div>
             </div>
@@ -152,8 +156,8 @@ export default function Home() {
           </div>
           
           <div className="text-center mt-16">
-            <Link to="/chat" className="inline-block px-8 py-4 bg-amber-500 text-white font-semibold rounded-lg shadow-md hover:bg-amber-600 transition-colors">
-              Try a Demo Bot
+            <Link to="/chatpage" className="inline-block px-8 py-4 bg-amber-500 text-white font-semibold rounded-lg shadow-md hover:bg-amber-600 transition-colors">
+              Dugsiiye Bot
             </Link>
           </div>
         </div>

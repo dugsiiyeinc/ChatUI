@@ -9,8 +9,8 @@ const chartData = {
     bar: [{ month: "July", chats: 10 }],
     pie: [
       { name: "General", value: 3 },
-      { name: "Symptoms", value: 5 },
-      { name: "Nutrition", value: 2 },
+      { name: "Subjects", value: 5 },
+      { name: "Guidance", value: 2 },
     ],
   },
   "Last 30 Days": {
@@ -20,8 +20,8 @@ const chartData = {
     ],
     pie: [
       { name: "General", value: 10 },
-      { name: "Symptoms", value: 25 },
-      { name: "Nutrition", value: 5 },
+      { name: "Subjects", value: 25 },
+      { name: "Guidance", value: 5 },
     ],
   },
   "Last 90 Days": {
@@ -32,8 +32,8 @@ const chartData = {
     ],
     pie: [
       { name: "General", value: 25 },
-      { name: "Symptoms", value: 50 },
-      { name: "Nutrition", value: 25 },
+      { name: "Subjects", value: 50 },
+      { name: "Guidance", value: 25 },
     ],
   },
   "This Year": {
@@ -45,8 +45,8 @@ const chartData = {
     ],
     pie: [
       { name: "General", value: 35 },
-      { name: "Symptoms", value: 45 },
-      { name: "Nutrition", value: 20 },
+      { name: "Subjects", value: 45 },
+      { name: "Guidance", value: 20 },
     ],
   },
 };
@@ -66,7 +66,7 @@ export default function HistoryPage() {
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold flex items-center gap-2">
-            📊 <span className="text-white">AI Health Chat History</span>
+            📊 <span className="text-white">Dugsiiye Bot Chat History</span>
           </h1>
           <DateRangeDropdown selected={selectedRange} onChange={setSelectedRange} />
         </div>
@@ -75,7 +75,7 @@ export default function HistoryPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
           {/* Bar Chart */}
           <div className="bg-gray-800 rounded-2xl p-6 shadow-md">
-            <h2 className="text-lg font-semibold text-indigo-300 mb-4">Chat Volume Over Time</h2>
+            <h2 className="text-lg font-semibold text-indigo-300 mb-4">Student Interaction Over Time</h2>
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={barData}>
                 <XAxis dataKey="month" stroke="#d1d5db" />
@@ -84,6 +84,9 @@ export default function HistoryPage() {
                 <Bar dataKey="chats" fill="#818cf8" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
+            <p className="text-sm text-gray-300 mt-4">
+              This chart shows how many educational chats occurred each month. A rising trend means more students are using Dugsiiye Bot.
+            </p>
           </div>
 
           {/* Pie Chart */}
@@ -126,6 +129,11 @@ export default function HistoryPage() {
                 <Tooltip />
               </PieChart>
             </ResponsiveContainer>
+            <ul className="text-sm text-gray-300 mt-4 space-y-1">
+              <li><span className="text-indigo-400 font-semibold">🟣 General:</span> General questions like how to use Dugsiiye or navigate the platform.</li>
+              <li><span className="text-green-400 font-semibold">🟢 Subjects:</span> Curriculum-related questions asked by students.</li>
+              <li><span className="text-yellow-400 font-semibold">🟠 Guidance:</span> Study tips, advice, and academic support queries.</li>
+            </ul>
           </div>
         </div>
       </div>
