@@ -9,3 +9,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.default-mode {
+  @apply bg-gray-900 text-white;
+}
+
+.white-mode {
+  @apply bg-white text-black;
+}
+
+

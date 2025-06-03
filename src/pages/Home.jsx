@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { MdDarkMode } from "react-icons/md";
+import { useTheme } from '../context/ThemeContext';
 
 export default function Home() {
+  const { currentTheme } = useTheme();
   return (
+    <div  className={`${currentTheme === 'dark' ? 'bg-white text-black' : 'bg-gray-900 text-white'} min-h-screen`}>
+      {/* Your Home page content */}
+      
     <div className="bg-white dark:bg-gray-900 text-black dark:text-white">
   
 
@@ -164,5 +169,9 @@ Integrate Dugsiiye bots on websites, mobile apps, and messaging platforms to rea
       </div>
     </div>
     </div>
+    </div>
+
+    
+
   );
 }

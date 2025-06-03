@@ -6,3 +6,12 @@ module.exports = {
     require('autoprefixer'),
   ],
 };
+// tailwind.config.js
+module.exports = {
+  darkMode: 'class', // ✅ REQUIRED
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};

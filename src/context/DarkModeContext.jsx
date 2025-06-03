@@ -1,32 +1,27 @@
-// src/context/DarkModeContext.jsx
+// context/DarkModeContext.jsx
 import { createContext, useContext, useEffect, useState } from 'react';
 
 const DarkModeContext = createContext();
 
-const DarkModeProvider = ({ children }) => {
-  const getInitialTheme = () => {
-    const stored = localStorage.getItem('theme');
-    if (stored) return stored === 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  };
-
-  const [isDarkMode, setIsDarkMode] = useState(getInitialTheme);
+export const DarkModeProvider = ({ children }) => {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
 
   useEffect(() => {
-    const root = window.document.documentElement;
-    const theme = isDarkMode ? 'dark' : 'light';
-    root.classList.toggle('dark', isDarkMode);
-    localStorage.setItem('theme', theme);
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
-  const value = { isDarkMode, setIsDarkMode };
-
   return (
-    <DarkModeContext.Provider value={value}>
+    <DarkModeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
       {children}
     </DarkModeContext.Provider>
   );
 };
 
-export default DarkModeProvider;
-export const useDarkMode = () => useContext(DarkModeContext); // ✅ Still works, compatible
+export const useDarkMode = () => useContext(DarkModeContext);

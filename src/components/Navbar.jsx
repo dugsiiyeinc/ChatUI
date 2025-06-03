@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
-import { useDarkMode } from '../context/DarkModeContext'; // Ensure this path is correct
+import { useDarkMode } from '../context/DarkModeContext';
 import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
@@ -8,9 +8,18 @@ const Navbar = () => {
   const { user } = useAuth();
   const username = user?.user_metadata?.username || user?.email;
 
+  // Apply theme class to <html>
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
   return (
-    <nav className="bg-gray-900 dark:bg-gray-800 text-white px-6 py-4 flex justify-between items-center">
-      {/* Left section: Navigation links */}
+    <nav className="bg-gray-900 dark:bg-gray-100 text-white dark:text-black px-6 py-4 flex justify-between items-center transition-colors duration-300">
+      {/* Left section: Navigation */}
       <div className="flex items-center gap-6 text-orange-400 font-semibold">
         <span className="font-bold text-lg">Dugsiiye Bot</span>
         <a href="#">Home</a>
@@ -21,15 +30,13 @@ const Navbar = () => {
         <a href="#">Settings</a>
       </div>
 
-      {/* Right section: Welcome message and dark mode toggle */}
+      {/* Right section: Welcome + Toggle */}
       <div className="flex items-center gap-4">
         {user && (
           <span className="text-sm">
             Welcome, <span className="text-orange-300">{username}</span>
           </span>
         )}
-
-        {/* Star toggle button (filled for dark mode, outlined for light mode) */}
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}

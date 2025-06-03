@@ -5,6 +5,7 @@ import { useEffect} from 'react';
 import { AuthProvider } from './context/AuthContext';
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
+import { useTheme } from './context/ThemeContext';
 
 import React, { useState } from "react";
 import Header from "./components/Header";
@@ -19,6 +20,7 @@ import ChatPage from "./pages/ChatPage";
 // import UpdateMessage from "./components/UpdateMessage";
 
 function App() {
+   const { currentTheme } = useTheme();
   //  const [darkMode, setDarkMode] = useState(true);
   //   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
 
@@ -32,7 +34,10 @@ function App() {
 
   
   return (
-    <BrowserRouter>
+     <div className={currentTheme === 'dark' ? 'bg-white text-black' : 'bg-gray-900 text-white'}>
+      {/* Here you render your routes or pages */}
+
+                  <BrowserRouter>
      <Header/>
        {/* your routes or layout */}
       {/* //<Settings setTheme={setTheme} currentTheme={theme} /> */}
@@ -51,6 +56,10 @@ function App() {
      
       <Footer/>
     </BrowserRouter>
+
+
+    </div>
+
   );
 
 }
