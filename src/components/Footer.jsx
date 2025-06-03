@@ -7,10 +7,10 @@ export default function Footer() {
           
           {/* ChatUI Info */}
           <div>
-            <h2 className="text-xl font-bold mb-4 text-amber-400">ChatUI</h2>
+            <h2 className="text-xl font-bold mb-4 text-amber-400">Dugsiiye</h2>
             <p className="text-sm text-gray-300">
-              ChatUI is a modern chatbot interface built with React and TailwindCSS. 
-              It’s designed to be fast, responsive, and user-friendly.
+             Dugsiiye Bot is a modern chatbot interface built with React and TailwindCSS.
+It’s designed to be fast, responsive, and user-friendly—making it easier for students to ask questions and get academic help.
             </p>
           </div>
   
@@ -30,14 +30,14 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h2 className="text-xl font-bold mb-4 text-amber-400">Contact</h2>
-            <p className="text-sm text-gray-300">Email: istarmohamd504@gmail.com</p>
+            <p className="text-sm text-gray-300">Email: Dugsiiye@gmail.com</p>
             <p className="text-sm text-gray-300">Phone: +252 61 9132246</p>
             <p className="text-sm text-gray-300">Location: Mogadishu, Somalia</p>
           </div>
         </div>
   
         <div className="mt-12 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
-          &copy; {new Date().getFullYear()} ChatUI. All rights reserved. .....
+          &copy; {new Date().getFullYear()} Dusgiiye. All rights reserved. ....
         </div>
       </footer>
     );
