@@ -49,7 +49,7 @@ const SignUpPage = () => {
 
   if (success) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      <div className="min-h-screen flex items-center justify-center bg-gray-500 px-4">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-2 text-green-700">✅ Account Created Successfully!</h1>
           <p className="text-gray-600">Redirecting to sign in...</p>
@@ -62,16 +62,16 @@ const SignUpPage = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 px-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold">Create an Account</h1>
-          <p className="text-gray-600 mt-2">Join our community and start sharing your ideas</p>
+          <h1 className="text-3xl font-bold text-amber-400">Create an Account</h1>
+          <p className="text-shadow-amber-200 mt-2">Join our community and start sharing your ideas</p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-8">
+        <div className="bg-gray-100 rounded-lg shadow-md p-8">
           {error && (
-            <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md text-sm">
+            <div className="mb-4 p-3 bg-red-100 text-gray-700 rounded-md text-sm">
               {error}
             </div>
           )}
@@ -85,7 +85,7 @@ const SignUpPage = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-2 border rounded-md  bg-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-gray-900"
                 placeholder="your@email.com"
               />
             </div>
@@ -98,20 +98,20 @@ const SignUpPage = () => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-2 border bg-gray-200 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
                 placeholder="johndoe"
               />
             </div>
 
             {/* Password */}
             <div className="mb-6">
-              <label className="block text-gray-700 text-sm font-semibold mb-2">Password</label>
+              <label className="block  text-gray-700 text-sm font-semibold mb-2">Password</label>
               <input
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-2 border bg-gray-200 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
                 placeholder="••••••••"
                 minLength={6}
               />
@@ -121,7 +121,7 @@ const SignUpPage = () => {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="text-sm text-orange-600 hover:underline mt-1"
+                className="text-sm text-gray-800 hover:underline mt-1"
               >
                 {showPassword ? 'Hide password' : 'Show password'}
               </button>
@@ -135,22 +135,23 @@ const SignUpPage = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-2 border bg-gray-200 text-black  rounded-md focus:outline-none focus:ring-2 focus:ring-gray-800"
                 placeholder="••••••••"
               />
               <button
                 type="button"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="text-sm text-orange-600 hover:underline mt-1"
+                className="text-sm text-gray-600 hover:underline mt-1"
+                placeholder="......."
               >
-                {showConfirmPassword ? 'Hide password' : 'Show password'}
+                {/* {showConfirmPassword ? 'Hide password' : 'Show password'} */}
               </button>
             </div>
 
             {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 transition duration-200 disabled:cursor-not-allowed disabled:bg-orange-500"
+              className="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 transition duration-200 disabled:cursor-not-allowed disabled:bg-orange-500"
               disabled={isLoading}
             >
               {isLoading ? 'Creating Account...' : 'Create Account'}
@@ -160,7 +161,7 @@ const SignUpPage = () => {
           <div className="text-center mt-6">
             <p className="text-gray-600 text-sm">
               Already have an account?{' '}
-              <Link to="/signin" className="text-orange-600 hover:text-orange-800 font-semibold">
+              <Link to="/signin" className="text-gray-800 hover:text-orange-800 font-semibold">
                 Sign in
               </Link>
             </p>
