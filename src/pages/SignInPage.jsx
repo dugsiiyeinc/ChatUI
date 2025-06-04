@@ -93,7 +93,7 @@ const SignInPage = () => {
               onClick={() => setShowPassword(!showPassword)}
               className="text-sm text-gray-600 hover:underline mt-1"
             >
-              {/* {showPassword ? 'Hide password' : 'Show password'} */}
+              
             </button>
           </div>
 
