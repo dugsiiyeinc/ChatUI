@@ -169,8 +169,7 @@ const ChatPage = () => {
           </div>
         </div>
       </div>
-      h1
-      /////
+     
     </div>
   );
 };
