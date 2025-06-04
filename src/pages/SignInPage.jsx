@@ -55,12 +55,12 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 px-4">
+      <div className="max-w-md w-full bg-gray-100 p-8 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Sign In</h2>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md text-sm">
+          <div className="mb-4 p-3 bg-gray-500 text-gray-700 rounded-md text-sm">
             {error}
           </div>
         )}
@@ -73,7 +73,7 @@ const SignInPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-4 py-2 border bg-gray-200 text-black  rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
               placeholder="your@email.com"
             />
           </div>
@@ -85,21 +85,21 @@ const SignInPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full px-4 py-2 border  bg-gray-200 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
               placeholder="••••••••"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="text-sm text-orange-600 hover:underline mt-1"
+              className="text-sm text-gray-600 hover:underline mt-1"
             >
-              {showPassword ? 'Hide password' : 'Show password'}
+              
             </button>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-700 transition disabled:bg-orange-400"
+            className="w-full bg-gray-900 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition disabled:bg-gray-400"
             disabled={isLoading}
           >
             {isLoading ? 'Signing in...' : 'Sign In'}
@@ -108,7 +108,7 @@ const SignInPage = () => {
 
         <p className="text-sm text-center mt-6 text-gray-600">
           Don’t have an account?{' '}
-          <Link to="/signup" className="text-orange-600 font-semibold hover:underline">
+          <Link to="/signup" className="text-gray-600 font-semibold hover:underline">
             Create one
           </Link>
         </p>
