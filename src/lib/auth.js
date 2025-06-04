@@ -31,6 +31,6 @@ export const signIn = async (email, password) => {
     password,
   });
 
-  // if (error) throw error;
-  // return data;
+  if (error) throw error;
+  return data;
 };
