@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { signUp } from '../lib/auth';
-import { useAuth } from '../context/AuthContext';
+import { signUp } from '../lib/auth'; // ✅ uses updated signUp with username + role
 
 const SignUpPage = () => {
   const [email, setEmail] = useState('');
@@ -22,20 +21,20 @@ const SignUpPage = () => {
     setError(null);
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setError("❌ Passwords do not match");
       setIsLoading(false);
       return;
     }
 
     const passwordRegex = /[@0-9]/;
     if (!passwordRegex.test(password)) {
-      setError("Password must include at least one number or the @ symbol");
+      setError("❌ Password must include at least one number or @ symbol");
       setIsLoading(false);
       return;
     }
 
     try {
-      await signUp(email, password, username);
+      await signUp(email, password, username); // ✅ includes username + role
       setSuccess(true);
       setTimeout(() => {
         navigate('/signin');
@@ -52,10 +51,10 @@ const SignUpPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-2 text-green-700">Account Created Successfully!</h1>
+          <h1 className="text-2xl font-bold mb-2 text-green-700">✅ Account Created Successfully!</h1>
           <p className="text-gray-600">Redirecting to sign in...</p>
           <p className="text-sm mt-2 text-gray-400 italic">
-            If your browser asks to change your password, it may be because the password you used was previously leaked online. Please consider using a stronger one.
+            If your browser asks to save your password, it may be due to password history leaks. Consider using a strong password.
           </p>
         </div>
       </div>
@@ -78,48 +77,42 @@ const SignUpPage = () => {
           )}
 
           <form onSubmit={handleSubmit}>
+            {/* Email */}
             <div className="mb-6">
-              <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="email">
-                Email Address
-              </label>
+              <label className="block text-gray-700 text-sm font-semibold mb-2">Email Address</label>
               <input
-                id="email"
                 type="email"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-                placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="your@email.com"
               />
             </div>
 
+            {/* Username */}
             <div className="mb-6">
-              <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="username">
-                Username
-              </label>
+              <label className="block text-gray-700 text-sm font-semibold mb-2">Username</label>
               <input
-                id="username"
                 type="text"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-                placeholder="johndoe"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="johndoe"
               />
             </div>
 
+            {/* Password */}
             <div className="mb-6">
-              <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="password">
-                Password
-              </label>
+              <label className="block text-gray-700 text-sm font-semibold mb-2">Password</label>
               <input
-                id="password"
                 type={showPassword ? 'text' : 'password'}
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-                placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="••••••••"
                 minLength={6}
               />
               <div className="text-xs text-gray-500 mt-1">
@@ -134,18 +127,16 @@ const SignUpPage = () => {
               </button>
             </div>
 
+            {/* Confirm Password */}
             <div className="mb-6">
-              <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="confirmPassword">
-                Confirm Password
-              </label>
+              <label className="block text-gray-700 text-sm font-semibold mb-2">Confirm Password</label>
               <input
-                id="confirmPassword"
                 type={showConfirmPassword ? 'text' : 'password'}
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-                placeholder="••••••••"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
+                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                placeholder="••••••••"
               />
               <button
                 type="button"
@@ -156,6 +147,7 @@ const SignUpPage = () => {
               </button>
             </div>
 
+            {/* Submit */}
             <button
               type="submit"
               className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 transition duration-200 disabled:cursor-not-allowed disabled:bg-orange-500"

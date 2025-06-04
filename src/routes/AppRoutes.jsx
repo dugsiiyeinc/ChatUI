@@ -19,6 +19,7 @@ import Layout from "../Layouts/MainLayout";
 // import ChatPage from './pages/ChatPage';
 import PrivateRoute from '../components/PrivateRoute';
 import { FaSun, FaMoon } from 'react-icons/fa';
+import Profile from "../components/Profile";
 
 // import { useState } from "react";
 
@@ -41,6 +42,7 @@ export default function AppRoutes() {
     <ChatPage />
   </PrivateRoute>
 } />
+       <Route path="/profile" element={<Profile/>} />
       <Route path="/users" element={<Users />} />
       <Route path="/settings" element={<Settings />} />
       <Route path='/signin'

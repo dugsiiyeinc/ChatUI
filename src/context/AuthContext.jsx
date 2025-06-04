@@ -5,24 +5,29 @@ import { supabase } from '../lib/supabase';
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [profile, setProfile] = useState(null); // optional: extend if you store more profile info
+  const [user, setUser] = useState(() => {
+    const stored = localStorage.getItem('loggedInUser');
+    return stored ? JSON.parse(stored) : null;
+  });
+
+  const [profile, setProfile] = useState(null); // optional: extend if needed
   const [isLoading, setIsLoading] = useState(true);
 
-  // ✅ Check session on load
+  // ✅ Check Supabase session on initial load (optional if using localStorage)
   useEffect(() => {
     const getSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
 
       if (session?.user) {
-        setUser(session.user);
+        // Don't override localStorage unless necessary
+        setUser((prev) => prev || session.user);
       }
       setIsLoading(false);
     };
 
     getSession();
 
-    // ✅ Listen for login/logout events
+    // ✅ Listen for login/logout events from Supabase
     const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
       console.log("Auth event:", event);
 
@@ -30,6 +35,7 @@ export const AuthProvider = ({ children }) => {
         setUser(session.user);
       } else if (event === 'SIGNED_OUT') {
         setUser(null);
+        localStorage.removeItem('loggedInUser');
       }
 
       setIsLoading(false);
@@ -51,6 +57,7 @@ export const AuthProvider = ({ children }) => {
 
   const value = {
     user,
+    setUser,
     profile,
     isLoading,
     isLoggedIn: !!user,

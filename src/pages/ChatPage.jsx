@@ -108,16 +108,16 @@ const ChatPage = () => {
     setUserInput("");
   };
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="h-screen flex items-center justify-center">
-  //       <p className="text-gray-600 text-lg">Loading...</p>
-  //     </div>
-  //   );
-  // }
+  if (isLoading) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <p className="text-gray-600 text-lg">Loading...</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-white text-gray-800">
       {/* <div className="p-4 border-b bg-gray-100 text-gray-800 text-center font-semibold">
         Welcome, {username}
       </div> */}
@@ -144,7 +144,7 @@ const ChatPage = () => {
             )}
           </div>
 
-          <div className="p-4 border-t bg-white">
+          <div className="p-4 border-t bg-gray">
             <div className="flex gap-2">
               <textarea
                 rows={1}

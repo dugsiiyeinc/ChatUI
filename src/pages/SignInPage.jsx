@@ -20,8 +20,21 @@ const SignInPage = () => {
       console.error("Sign in error:", error.message);
       setError(error.message);
     } else {
-      const username = data.user.user_metadata?.username || data.user.email;
-      alert(`✅ Successfully logged in! Welcome, ${username}`);
+      const userData = {
+        id: data.user.id,
+        email: data.user.email,
+        username: data.user.user_metadata?.username,
+        avatar: data.user.user_metadata?.avatar || '', // 👈 persist avatar
+        role: data.user.user_metadata?.role || 'user',
+      };
+
+      // Give admin role manually if email matches
+      if (userData.email === 'istarmohamed503@gmail.com') {
+        userData.role = 'admin';
+      }
+
+      localStorage.setItem('loggedInUser', JSON.stringify(userData));
+      alert(`✅ Successfully logged in! Welcome, ${userData.username}`);
       navigate('/chatpage');
     }
   };
