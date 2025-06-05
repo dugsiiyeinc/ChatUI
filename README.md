@@ -24,7 +24,7 @@
 - Midabyo u eg classroom & smart interface
 - Bot assistant oo leh input iyo conversation log
 - Sign In / Sign Up buttons
-![alt text](image.png)
+![alt text](image-1.png)
 ---
 
 ## 🛠️ Tech Stack
