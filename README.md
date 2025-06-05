@@ -29,7 +29,7 @@
 ## ✨ Key Features
 
 - 🤖 **AI Chatbot**: Caawiye xog ogaal ah oo su'aalahaaga ku saabsan casharada si degdeg ah uga jawaaba.
-- 📚 **Maadooyin Dugsiga**: Su’aalo la xiriira physics, math, ICT, iyo maadooyin kale oo la heli karo.
+
 - 🔐 **Supabase Authentication**: Isdiiwaangelin iyo galitaan ammaan ah oo fudud.
 - 🌙 **Dark/Light Mode Toggle**: Doorashada muuqaalka habeen ama maalin si fudud.
 - 📱 **Mobile Responsive**: Si fiican ayuu uga shaqeeyaa qalab kasta — mobile, tablet, iyo desktop.
