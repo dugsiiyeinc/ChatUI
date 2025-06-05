@@ -1,12 +1,12 @@
 
 
-# 🟡 ChatUi – Smart Assistant for Students
+# 🟡 Dugsiiye – Smart Assistant for Students
 
 **ChatUi** waa web app fudud oo kaa caawinaya inaad si sahlan uga hesho jawaabo deg deg ah oo ku saabsan dugsiga, gaar ahaan casharada macallimiintu dhigaan. Waa chatbot waxbarasho u gaar ah oo loogu talagalay ardayda.
 
 ---
 
-## 🧠 Waa maxay ChatUi qabto?
+## 🧠 Waa maxay Dugsiiye qabto?
 
 - Kuu oggolaanaya inaad weydiiso su'aalo la xiriira:
   - Maadooyinka dugsiga
