@@ -45,8 +45,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-         <div             className={`w-full pl-8 pr-3 py-1 rounded 
-              ${MdDarkMode ? "bg-gray-800 text-white placeholder-gray-400" : "bg-gray-100 text-black placeholder-gray-500"}`}></div>
+         {/* <div             className={`w-full pl-8 pr-3 py-1 rounded 
+              ${MdDarkMode ? "bg-gray-800 text-white placeholder-gray-400" : "bg-gray-100 text-black placeholder-gray-500"}`}></div> */}
       {/* Part 2: Bot Manager Features */}
       <div className="py-20 px-4">
         <div className="container mx-auto">

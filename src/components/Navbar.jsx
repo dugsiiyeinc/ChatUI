@@ -32,17 +32,17 @@ const Navbar = () => {
 
       {/* Right Section: User + Dark Mode Toggle */}
       <div className="flex items-center gap-4">
-        {user && (
+        {/* {user && (
           <span className="text-sm">
             Welcome, <span className="text-orange-300">{username}</span>
           </span>
-        )}
+        )} */}
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           className="text-yellow-400 text-2xl hover:rotate-12 transition-transform duration-300"
         >
-          {isDarkMode ? <FaStar /> : <FaRegStar />}
+          {isDarkMode ? <FaStar />  : <FaRegStar />}
         </button>
       </div>
     </nav>

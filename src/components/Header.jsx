@@ -1,37 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { FaSun, FaMoon, FaBars } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaBars } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
+import { useTheme } from "../context/ThemeContext";
 
 const Header = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { currentTheme, setTheme } = useTheme();
   const username = user?.user_metadata?.username || user?.email;
 
   const handleDugsiiyeBotClick = () => {
-    if (user) {
-      navigate("/chatpage");
-    } else {
-      navigate("/signin");
-    }
+    navigate(user ? "/chatpage" : "/signin");
   };
-
-  // Handle dark mode toggle
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (darkMode) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
 
   return (
     <nav className="bg-gray-900 dark:bg-gray-800 text-white shadow-md">
@@ -49,22 +31,20 @@ const Header = () => {
           <Link to="/settings" className="hover:text-white">Settings</Link>
         </div>
 
-        {/* Right: Dark Mode + User + Hamburger */}
-        <div className="flex items-center gap-3 ml-auto">
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="text-amber-400 text-xl"
-            title="Toggle Theme"
-          >
-            {darkMode ? <FaSun /> : <FaMoon />}
-          </button>
-          {user && (
-            <span className="text-sm text-gray-300 whitespace-nowrap hidden sm:inline">
-              Welcome, {username}
-            </span>
-          )}
+        {/* Right: Toggle + Hamburger */}
+        <div className="flex items-center gap-4 ml-auto">
+          <label className="relative inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              checked={currentTheme === "dark"}
+              onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
+              className="sr-only peer"
+            />
+            <div className="w-11 h-6 bg-gray-400 peer-checked:bg-white rounded-full transition duration-300"></div>
+            <div className="absolute left-1 top-1 w-4 h-4 bg-black rounded-full transition-all duration-300 peer-checked:translate-x-5 peer-checked:bg-gray-900"></div>
+          </label>
 
-          {/* Hamburger (visible on mobile) */}
+          {/* Hamburger */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-amber-400 text-xl md:hidden"
@@ -77,12 +57,12 @@ const Header = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden flex flex-col items-center gap-4 py-4 text-amber-400 font-semibold bg-gray-900 dark:bg-gray-800">
-          <Link to="/" className="hover:text-white" onClick={() => setIsMenuOpen(false)}>Home</Link>
-          <Link to="/history" className="hover:text-white" onClick={() => setIsMenuOpen(false)}>History</Link>
-          <Link to="/bot" className="hover:text-white" onClick={() => setIsMenuOpen(false)}>Bot</Link>
+          <Link to="/" onClick={() => setIsMenuOpen(false)} className="hover:text-white">Home</Link>
+          <Link to="/history" onClick={() => setIsMenuOpen(false)} className="hover:text-white">History</Link>
+          <Link to="/bot" onClick={() => setIsMenuOpen(false)} className="hover:text-white">Bot</Link>
           <button onClick={() => { handleDugsiiyeBotClick(); setIsMenuOpen(false); }} className="hover:text-white">Dugsiiye Bot</button>
-          <Link to="/users" className="hover:text-white" onClick={() => setIsMenuOpen(false)}>Testmonial</Link>
-          <Link to="/settings" className="hover:text-white" onClick={() => setIsMenuOpen(false)}>Settings</Link>
+          <Link to="/users" onClick={() => setIsMenuOpen(false)} className="hover:text-white">Testmonial</Link>
+          <Link to="/settings" onClick={() => setIsMenuOpen(false)} className="hover:text-white">Settings</Link>
         </div>
       )}
     </nav>

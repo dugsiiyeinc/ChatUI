@@ -87,7 +87,7 @@ export default function Settings() {
             </div>
 
             {/* Theme Dropdown */}
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium mb-2">🌗 Theme</label>
               <select
                 value={selectedTheme}
@@ -97,25 +97,25 @@ export default function Settings() {
                 <option>Light</option>
                 <option>Dark</option>
               </select>
-            </div>
+            </div> */}
 
             {/* Language */}
             <div>
               <label className="block text-sm font-medium mb-2">🌍 Language</label>
               <select className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 dark:text-black dark:bg-gray-100">
                 <option>Somali</option>
-                <option>English</option>
+                
               </select>
             </div>
 
             {/* Notifications */}
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium mb-2">🔔 Notifications</label>
               <select className="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-blue-500 dark:text-black dark:bg-gray-100">
                 <option>On</option>
                 <option>Off</option>
               </select>
-            </div>
+            </div> */}
 
             {/* Role (admin only) */}
             {user?.role === 'admin' && (
