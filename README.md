@@ -1,6 +1,8 @@
+
+
 # 🟡 Dugsiiye – Smart Assistant for Students
 
-**ChatUi** waa web app fudud oo kaa caawinaya inaad si sahlan uga hesho jawaabo degdeg ah oo ku saabsan dugsiga, gaar ahaan casharrada macallimiintu dhigaan. Waa chatbot waxbarasho u gaar ah oo loogu talagalay ardayda.
+**ChatUi** waa web app fudud oo kaa caawinaya inaad si sahlan uga hesho jawaabo deg deg ah oo ku saabsan dugsiga, gaar ahaan casharada macallimiintu dhigaan. Waa chatbot waxbarasho u gaar ah oo loogu talagalay ardayda.
 
 ---
 
@@ -21,23 +23,8 @@
 - Navigation bar leh: Home | History | Bot | Chatpage | Users | Settings
 - Midabyo u eg classroom & smart interface
 - Bot assistant oo leh input iyo conversation log
-- Sign In / Sign Up buttons  
+- Sign In / Sign Up buttons
 ![alt text](image-1.png)
-
----
-
-## ✨ Key Features
-
-- 🤖 **AI Chatbot**: Caawiye xog ogaal ah oo su'aalahaaga ku saabsan casharada si degdeg ah uga jawaaba.
-
-- 🔐 **Supabase Authentication**: Isdiiwaangelin iyo galitaan ammaan ah oo fudud.
-- 🌙 **Dark/Light Mode Toggle**: Doorashada muuqaalka habeen ama maalin si fudud.
-- 📱 **Mobile Responsive**: Si fiican ayuu uga shaqeeyaa qalab kasta — mobile, tablet, iyo desktop.
-- 🧠 **Mentorship Awareness**: Warbixin iyo talooyin ku saabsan barnaamijka Dugsiiye Mentorship.
-- 🛠️ **Easy Setup & Deployment**: Mashruuc fudud in la isticmaalo iyo in la host-gareeyo.
-- 🧩 **Local Chat History**: Taariikhda sheekadaada oo si ammaan ah loogu kaydiyo browser-kaaga.
-- 🌐 **Live Preview**: Netlify/Vercel waxay kuu ogolaanayaan inaad si toos ah u tijaabiso app-ka.
-
 ---
 
 ## 🛠️ Tech Stack
@@ -52,17 +39,64 @@
 | **Deployment**    | Vite + Netlify/Vercel                  |
 
 ---
-> App-ka wuxuu si toos ah uga furmi doonaa: https://dugsiiyechat.netlify.app/
 
 ## 🔧 Sida loo socodsiiyo mashruuca (Local Setup)
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/star-ELmi/ChatUi.git
+https://github.com/star-ELmi/ChatUi.git
 cd ChatUi
 
 # 2. Install dependencies
 npm install
 
 # 3. Run project with Vite
-npm run dev
+dnpm run dev
+```
+
+> App-ka wuxuu si toos ah uga furmi doonaa: `https://dugsiiyechat.netlify.app/`
+
+---
+
+❓ Su'aalaha Weydiin Kartid Chatbot-ka
+Chatbot-ka ChatUi wuxuu kaa caawin karaa inaad hesho jawaabo degdeg ah oo ku saabsan arrimo badan oo la xiriira Dugsiiye. Tusaalooyin:
+
+💭 Dugsiiye maxay qabataa?
+
+💸 Dugsiiye ma bixisaa discount?
+
+🎓 Mentorship-ka Dugsiiye maxaa lagu bartaa?
+
+🧭 Maxaad iigu talin lahayd si aan Dugsiiye uga faa'iidaysto?
+
+🎯 Dugsiiye maxee xooga saartaa?
+
+👩‍💻 Hadii cilad iga qabsato dhanka cashirka ama projectka ma heli karaa team i caawiya? 
+
+🆘 Haddii cilad iga qabsato dhanka casharka ama project-ka, ma heli karaa team i caawiya?
+
+🔍 waa maxay Farqiga u dhexeeya JavaScript iyo React ?
+
+🚀 Sidee ku bilaabi karaa barashada Fullstack?
+
+🧪 Sidee u ogaan karaa koorsada iga haboon ee Dugsiiye?
+
+## 🔚 Gunaanad
+
+ChatUi waa mashruuc waxbarasho oo diiradda saaraya ardayda Soomaaliyeed, gaar ahaan kuwa rabta inay si sahlan u fahmaan casharrada. Waxaa loogu talagalay ardeyda Dugsiiye dhigata iyo kuwa raba inay kuso biiraan Dusgiiye.
+
+---
+
+## 📥 Soo dejinta
+
+Waxaad mashruucan si fudud ugu tijaabin kartaa adigoo isticmaalaya:
+- **Node.js**
+- **Vite**
+- **npm**
+
+Haddii aad wax su’aalo ah qabto, xor ayaad u tahay inaad nala soo xiriirto 💬
+ Email : istarmohamed503@gmail.com
+
+---
+
+**Made with 💛 by Istar Mohamed** add key features and acknowlgement
