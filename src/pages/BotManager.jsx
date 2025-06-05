@@ -117,12 +117,12 @@ export default function BotManager() {
             <div className="space-y-4 text-black">
               <div>
                 <h3 className="text-lg font-semibold">{selectedBot.name}</h3>
-                <p className="text-gray-600">{selectedBot.description}</p>
+                <p className="text-gray-600 text-black">{selectedBot.description}</p>
               </div>
               <p>
                 <strong>Category:</strong> {selectedBot.category}
               </p>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-black">
                 <strong>Active</strong>
                 <input
                   type="checkbox"
