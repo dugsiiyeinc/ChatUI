@@ -114,7 +114,7 @@ export default function BotManager() {
         <div className="bg-white rounded-xl shadow-lg p-6">
           <h2 className="text-xl font-bold mb-4">Bot Preview</h2>
           {selectedBot ? (
-            <div className="space-y-4">
+            <div className="space-y-4 text-black">
               <div>
                 <h3 className="text-lg font-semibold">{selectedBot.name}</h3>
                 <p className="text-gray-600">{selectedBot.description}</p>
