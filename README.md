@@ -52,6 +52,7 @@
 | **Deployment**    | Vite + Netlify/Vercel                  |
 
 ---
+> App-ka wuxuu si toos ah uga furmi doonaa: https://dugsiiyechat.netlify.app/
 
 ## 🔧 Sida loo socodsiiyo mashruuca (Local Setup)
 
